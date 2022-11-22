@@ -16,29 +16,28 @@ const Signup = () => {
   const validateData = () => {
     if (!name) {
       toast.warn("Please Enter Valid Name !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
     if (!email) {
       toast.warn("Please Enter Valid Email !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
     if (!password) {
       toast.warn("Please Enter Valid Password !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
-    }else if(password.length < 6) {
+    } else if (password.length < 6) {
       toast.warn("Please Enter Minimum 6 digit Password !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
     if (name && email && password) {
-    
       msg();
       return true;
     }
@@ -57,7 +56,7 @@ const Signup = () => {
 
     if (validateData()) {
       dispatch(signUp({ name, email, password }));
-     navigate("/login");
+      navigate("/login");
     }
   };
 

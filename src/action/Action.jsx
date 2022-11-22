@@ -1,4 +1,5 @@
 
+
 export const formData =(data)=>{
     return{
         type:"FORMDATA",
@@ -27,6 +28,13 @@ export const updateValue =(data)=>{
         type:"UPDATEVALUE",
          payload:data
         
+    }
+}
+
+export const depaValue =(data)=>{
+    return{
+        type:"DEPDATA",
+        payload:data
     }
 }
 

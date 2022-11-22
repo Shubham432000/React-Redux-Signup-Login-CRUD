@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { formData } from "../action/Action";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Form = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [add1, setAdd1] = useState("");
@@ -16,39 +17,51 @@ const Form = () => {
   const [gender, setGender] = useState("");
   const [mart, setMart] = useState("");
 
-  
-
   let date = new Date();
   let id = date.getTime();
   const validatedata = () => {
     if (!first) {
-      alert("enter valid name");
+      toast.warn("Please Enter Valid Name !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
     }
     if (!last) {
-      alert("enter valid last name");
+      toast.warn("Please Enter Valid Last Name !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
     }
     if (!add1) {
-      alert("enter valid address");
+      toast.warn("Please Enter  Address1 !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
     }
-    if (!mob ) {
-      alert("enter valid number");
+    if (!mob) {
+      toast.warn("Please Enter Address2 !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
     }
 
-    if (!pan ) {
-      alert("enter valid pan number");
+    if (!pan) {
+      toast.warn("Please Enter Pan No !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
-    } 
+    }
 
     if (!gender) {
-      alert("enter valid gender");
+      toast.warn("Please Enter Gender !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
     }
     if (!mart) {
-      alert("enter valid martiual status");
+      toast.warn("Please Enter martiual status !", {
+        position: toast.POSITION.TOP_CENTER,
+      });
       return false;
     }
 
@@ -70,7 +83,7 @@ const Form = () => {
           mob,
           pan,
           gender,
-          mart
+          mart,
         })
       );
       navigate("/employee");

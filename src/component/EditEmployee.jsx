@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { updateValue } from "../action/Action";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import swal from "sweetalert";
 
 const EditEmployee = () => {
   const employeeData = useSelector((state) => state.formReducer);
@@ -24,25 +25,18 @@ const EditEmployee = () => {
   const [mart, setMart] = useState(employeeData.Data1.mart);
   const id = employeeData.Data1.id;
 
-  
-
   const onSubmit = () => {
-    
-  if(  toast.success(
-      ` ${employeeData.Data1.first} your record edit succesfully`,
-      {
-        position: toast.POSITION.TOP_CENTER,
-      }
-    )
-  ){
-    dispatch(updateValue({id, first, last, add1, add2, mob, pan, gender, mart }))
-    navigate("/employee")
-  }
-    
-
-    
-    
-    
+    if (
+      swal({
+        icon: "success",
+        title: `${employeeData.Data1.first} Your Information Edit Succesfully`,
+      })
+    ) {
+      dispatch(
+        updateValue({ id, first, last, add1, add2, mob, pan, gender, mart })
+      );
+      navigate("/employee");
+    }
   };
 
   return (
@@ -155,7 +149,7 @@ const EditEmployee = () => {
             </div>
           </div>
 
-          <button  className="ml-[650px] mt-[20px] border border-indigo-600 px-2 py-1 text-white bg-indigo-600 hover:bg-white hover:text-indigo-600">
+          <button className="ml-[650px] mt-[20px] border border-indigo-600 px-2 py-1 text-white bg-indigo-600 hover:bg-white hover:text-indigo-600">
             Submit
           </button>
         </form>
