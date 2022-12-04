@@ -99,7 +99,7 @@ const Employee = () => {
       <Table
         coloumns={detectForm.Data}
         rows={rows}
-        title={"Employee"}
+        title={"Employees"}
         delet={removeData}
         edit={editValue}
       />
