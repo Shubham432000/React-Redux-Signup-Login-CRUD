@@ -1,84 +1,100 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { depaValue } from "../action/Action";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import Table from "./Table";
+import { depaDelet } from "../action/Action";
+import { depaEdit } from "../action/Action";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import swal from "sweetalert";
 
 const Deparment = () => {
+  const val = useSelector((state) => state.deparmentReducer);
+  const navigate = useNavigate();
+  console.log("infor", val);
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+  const dispatch = useDispatch();
 
-    const time = new Date()
-    const id = time.getTime()
+  const deparmentPage = () => {
+    navigate("/deparmentform");
+  };
 
-    const [depname,setdepName]=useState("")
-    const [identity,setIdentity]=useState("")
-    const [noemployee,setNoemployee]=useState("")
-    const [hod,setHod]=useState("")
+  function removeDepa(Data) {
+    // if(msg(employeeData)){
+    // dispatch(deletData(employeeData.id));
+    // }
 
-    const depaForm =(e)=>{
-      e.preventDefault();
-        dispatch(depaValue({id,depname,identity,noemployee,hod})
-        )
-        
-        navigate("/deparmentinfo")
-        
-    }
+    swal({
+      title: `${Data.first} Are you sure?`,
+      text: "Once deleted, you will not be able to recover this information!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        dispatch(depaDelet(Data.id));
+        swal("Poof! Your information  has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your information  is safe!");
+      }
+    });
+  }
+
+  function editDepa(edit) {
+    dispatch(depaEdit(edit.id));
+
+    navigate("/editdeparment");
+  }
+
+  const rows = [
+    { label: "Deparment name", value: "depname" },
+    { label: "Employee Id", value: "identity" },
+    { label: "No Of Empoyee", value: "noemployee" },
+    { label: "Head Of Deparment", value: "hod" },
+  ];
   return (
     <>
-      <section>
-        
-        <form action="" onSubmit={depaForm}>
-          <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[300px] h-[420px] ml-[500px] mt-[100px]">
-            <h1 className="text-center mt-2">Deparment Form</h1>
-            <div className="flex flex-col justify-center ml-[50px]">
-            
-              <label htmlFor="" className="mt-[20px]">
-              Deparment Name
-              </label>
-              <input
-                type="text"
-                value={depname}
-                onChange={(e) => setdepName(e.target.value)}
-                className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
-              />
-              <label htmlFor="" className="mt-[20px]">
-                 Id
-              </label>
-              <input
-                type="text"
-                value={identity}
-                onChange={(e) => setIdentity(e.target.value)}
-                className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
-              />
-              <label htmlFor="" className="mt-[20px]">
-                No Of Employee
-              </label>
-              <input
-                type="text"
-                value={noemployee}
-                onChange={(e) => setNoemployee(e.target.value)}
-                className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
-              />
-              <label htmlFor="" className="mt-[20px]">
-                Head Of Deparment
-              </label>
-              <input
-                type="text"
-                value={hod}
-                onChange={(e) => setHod(e.target.value)}
-                className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
-              />
-            </div>
-            
-            <button className="ml-[120px] mt-[20px] border border-indigo-600 px-2 py-1 text-white bg-indigo-600 hover:bg-white hover:text-indigo-600">
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
+      <div className="container  flex flex-row justify-end mt-[70px] cursor-pointer">
+        <div>
+          <AiOutlinePlusCircle onClick={() => deparmentPage()} size="35px" />
+        </div>
+      </div>
+      <div className="ml-[400px] mt-[100px]">
+        {/* <h1 className="ml-[250px] mb-[50px]">Deparment Employee</h1> */}
+        {/* <table className="table-fixed border-collapse border border-slate-400">
+          <thead>
+            <tr>
+              <th className="border border-slate-300 p-4">Deparment name</th>
+              <th className="border border-slate-300 p-4">Employee Id</th>
+              <th className="border border-slate-300 p-4">No Of Empoyee</th>
+              <th className="border border-slate-300 p-4">Head Of Deparment</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {val.Info.map((item) => (
+              <tr key={item.id}>
+                <td className="border border-slate-300 p-4">{item.depname}</td>
+                <td className="border border-slate-300 p-4">{item.identity}</td>
+                <td className="border border-slate-300 p-4">
+                  {item.noemployee}
+                </td>
+                <td className="border border-slate-300 p-4">{item.hod}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table> */}
+        <Table
+          coloumns={val.Info}
+          rows={rows}
+          title={"Deparment"}
+          delet={removeDepa}
+          edit={editDepa}
+        />
+      </div>
     </>
   );
 };

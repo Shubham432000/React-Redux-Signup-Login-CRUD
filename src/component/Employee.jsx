@@ -8,6 +8,7 @@ import { editData } from "../action/Action";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import swal from "sweetalert";
+import Table from "./Table";
 
 const Employee = () => {
   const detectForm = useSelector((state) => state.formReducer);
@@ -44,10 +45,21 @@ const Employee = () => {
     navigate("/editEmployee");
   }
 
+  const rows = [
+    { label: "First name", value: "first" },
+    { label: "Last name", value: "last" },
+    { label: "Add1", value: "add1" },
+    { label: "Add2", value: "add2" },
+    { label: "Mobile no", value: "mob" },
+    { label: "Pan no", value: "pan" },
+    { label: "Gender", value: "gender" },
+    { label: "Martiual status", value: "mart" },
+  ];
+
   return (
     <div className="ml-[250px] mt-[100px]">
-      <h1 className="ml-[350px] mb-[50px]">View Employee</h1>
-      <table className="table-fixed border-collapse border border-slate-400">
+      {/* <h1 className="ml-[350px] mb-[50px]">View Employee</h1> */}
+      {/* <table className="table-fixed border-collapse border border-slate-400">
         <thead>
           <tr>
             <th className="border border-slate-300 p-4">First name</th>
@@ -81,8 +93,16 @@ const Employee = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      <ToastContainer autoClose={2000} />
+      </table>  */}
+      {/* <ToastContainer autoClose={2000} /> */}
+
+      <Table
+        coloumns={detectForm.Data}
+        rows={rows}
+        title={"Employee"}
+        delet={removeData}
+        edit={editValue}
+      />
     </div>
   );
 };

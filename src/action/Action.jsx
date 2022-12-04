@@ -38,6 +38,27 @@ export const depaValue =(data)=>{
     }
 }
 
+export const depaDelet =(data)=>{
+    return{
+        type:"DEPDELET",
+        payload:data
+    }
+}
+
+export const depaEdit =(data)=>{
+    return{
+        type:"DEPEDIT",
+        payload:data
+    }
+}
+
+export const depaUpdate =(data)=>{
+    return{
+        type:"DEPUPDATE",
+        payload:data
+    }
+}
+
 export const signUp =(data)=>{
     return{
         type:"SIGNUP",

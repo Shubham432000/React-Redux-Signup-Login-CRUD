@@ -8,10 +8,12 @@ import PrivateComponent from "./component/privateComponent";
 import Form from "./component/Form";
 import Employee from "./component/Employee";
 import EditEmployee from "./component/EditEmployee";
+import DeparmentForm from "./component/DeparmentForm"
 import Deparment from "./component/Deparment"
-import DeparmentInformation from "./component/DeparmentInformation"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EditDeparment from "./component/EditDeparment"
+// import Table from "./component/Table";
 export const App = () => {
   return (
     <>
@@ -22,8 +24,10 @@ export const App = () => {
           <Route path="/form" element={<Form />} />
           <Route path="/employee" element={<Employee />} />
           <Route path="/editEmployee" element={<EditEmployee />} />
+          <Route path="/deparmentform" element={<DeparmentForm />}/>
           <Route path="/deparment" element={<Deparment />}/>
-          <Route path="/deparmentinfo" element={<DeparmentInformation />}/>
+          <Route path="/editdeparment" element={<EditDeparment/>}/>
+          {/* <Route path="/table" element={<Table />}/> */}
         </Route>
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />

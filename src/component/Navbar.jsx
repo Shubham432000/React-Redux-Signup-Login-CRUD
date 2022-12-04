@@ -54,9 +54,9 @@ const Navbar = () => {
             </Link>
             <Link
               className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
-              to="/deparmentinfo"
+              to="/deparment"
             >
-              Deparment Information
+              Deparment 
             </Link>
             <Link
               className="mr-5 hover:text-black-900 cursor-pointer hover:text-white hover:bg-red-700 rounded-full px-2 py-1"
