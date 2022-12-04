@@ -17,15 +17,15 @@ const Table = ({ coloumns = [], rows, title, delet, edit }) => {
           </thead>
 
           <tbody>
-            {coloumns.map((item) => {
-              rows.map((val) => {
+            {coloumns.map((item) =>
+            {rows.map((val) => (
                 <tr key={item.id}>
                   <td className="border border-slate-300 p-4">
                     {item[val.value]}
                   </td>
                 </tr>
-                console.log(item[val.value]);
-              });
+                
+              ))
             })}
           </tbody>
         </table>
@@ -36,7 +36,7 @@ const Table = ({ coloumns = [], rows, title, delet, edit }) => {
 
 export default Table;
 
-{
+
   /* <div className="ml-[200px] mt-[100px]">
         <h1 className="ml-[200px] mb-[50px]">{title}</h1>
         <table className="table-fixed border-collapse border border-slate-400">
@@ -65,4 +65,4 @@ export default Table;
         </table>
        
       </div> */
-}
+
