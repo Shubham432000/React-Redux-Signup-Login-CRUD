@@ -1,4 +1,6 @@
 import React from "react";
+import { FaTrashAlt } from "react-icons/fa";
+import { HiPencilAlt } from "react-icons/hi";
 
 const Table = ({ coloumns = [], rows, title, delet, edit }) => {
   return (
@@ -17,17 +19,42 @@ const Table = ({ coloumns = [], rows, title, delet, edit }) => {
           </thead>
 
           <tbody>
-            {coloumns.map((item) =>
-            {rows.map((val) => (
+            {coloumns.map((item) => {
+              return (
                 <tr key={item.id}>
-                  <td className="border border-slate-300 p-4">
-                    {item[val.value]}
-                  </td>
+                  {rows.map((val) => {
+                    return (
+                      <td className="border border-slate-300 p-4">
+                        {item[val.value]}
+                      </td>
+                    );
+                  })}
+                   <td className="border border-slate-300 p-4">
+                <HiPencilAlt onClick={() => edit(item)} />
+              </td>
+              <td className="border border-slate-300 p-4">
+                <FaTrashAlt onClick={() => delet(item)} />
+              </td>
                 </tr>
-                
-              ))
+              );
             })}
           </tbody>
+
+          {/* <tbody>
+            {coloumns.map((item) => {
+             return (rows.map((val) => {
+                return (
+                  <tr key={item.id}>
+                   
+                    <td className="border border-slate-300 p-4">
+                      {item[val.value]}
+                    </td>
+                   
+                  </tr>
+                );
+              }))
+            })}
+          </tbody> */}
         </table>
       </div>
     </>
@@ -36,8 +63,7 @@ const Table = ({ coloumns = [], rows, title, delet, edit }) => {
 
 export default Table;
 
-
-  /* <div className="ml-[200px] mt-[100px]">
+/* <div className="ml-[200px] mt-[100px]">
         <h1 className="ml-[200px] mb-[50px]">{title}</h1>
         <table className="table-fixed border-collapse border border-slate-400">
         {rows.map((row)=>(
@@ -65,4 +91,3 @@ export default Table;
         </table>
        
       </div> */
-

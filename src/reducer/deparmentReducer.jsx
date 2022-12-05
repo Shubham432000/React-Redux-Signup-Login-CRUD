@@ -10,7 +10,7 @@ const depaData = (state, payload) => {
 };
 
 const depaDelet = (state, payload) => {
-  const newList = state.Data.filter((item) => item.id !== payload);
+  const newList = state.Info.filter((item) => item.id !== payload);
   console.log("delelt", newList);
   // console.log("action",action.payload)
   console.log("state2", state);
@@ -22,7 +22,7 @@ const depaDelet = (state, payload) => {
 };
 
 const depaEdit = (state, payload) => {
-  const updateList = state.Data.find((item) => item.id == payload);
+  const updateList = state.Info.find((item) => item.id == payload);
 
   return {
     ...state,

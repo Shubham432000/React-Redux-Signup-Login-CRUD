@@ -15,12 +15,14 @@ const EditEmployee = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [depname,setdepName]=useState(depaData.info1.depname)
-  const [identity,setIdentity]=useState(depaData.info1.identity)
-  const [noemployee,setNoemployee]=useState(depaData.info1.noemployee)
-  const [hod,setHod]=useState(depaData.info1.hod)
-  const id = depaData.info1.id;
+  const [depname,setdepName]=useState(depaData.Info1.depname)
+  const [identity,setIdentity]=useState(depaData.Info1.identity)
+  const [noemployee,setNoemployee]=useState(depaData.Info1.noemployee)
+  const [hod,setHod]=useState(depaData.Info1.hod)
+  
+  const id = depaData.Info1.id;
 
+  console.log("edit depa",depname,hod)
   const onSubmit = () => {
     if (
       swal({
@@ -31,7 +33,7 @@ const EditEmployee = () => {
       dispatch(
         depaUpdate({id, depname,identity,noemployee,hod })
       );
-      navigate("/employee");
+      navigate("/deparment");
     }
   };
 
@@ -45,7 +47,7 @@ const EditEmployee = () => {
             <div className="flex flex-col justify-center ml-[50px]">
               <div className="flex flex-row mt-[20px]">
                 <label htmlFor="" className="mt-[7px]">
-                  First Name:
+                  Deparment Name:
                 </label>
                 <br />
                 <input
@@ -56,7 +58,7 @@ const EditEmployee = () => {
                   className="w-[200px] h-[30px] ml-[5px] mt-[5px] border border-indigo-600 pl-2"
                 />
                 <label htmlFor="" className="mt-[7px] ml-[30px]">
-                  Last Name:
+                  Employee id:
                 </label>
                 <br />
                 <input
@@ -69,7 +71,7 @@ const EditEmployee = () => {
               </div>
               <div className="flex flex-col mt-[20px]">
                 <label htmlFor="" className="mt-[7px]">
-                  Address1
+                  No Of Employees
                 </label>
                 <input
                   type="text"
@@ -79,7 +81,7 @@ const EditEmployee = () => {
                   className="w-[500px] h-[30px] ml-[5px] mt-[5px] border border-indigo-600 pl-2"
                 />
                 <label htmlFor="" className="mt-[7px] ">
-                  Address2
+                  Head of deparment
                 </label>
                 <input
                   type="text"

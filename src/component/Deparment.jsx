@@ -26,7 +26,7 @@ const Deparment = () => {
     // }
 
     swal({
-      title: `${Data.first} Are you sure?`,
+      title: `${Data.depname} Are you sure?`,
       text: "Once deleted, you will not be able to recover this information!",
       icon: "warning",
       buttons: true,
