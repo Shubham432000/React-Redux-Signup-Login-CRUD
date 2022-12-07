@@ -1,4 +1,5 @@
 
+// form action
 export const formData =(data)=>{
     return{
         type:"FORMDATA",
@@ -29,6 +30,38 @@ export const updateValue =(data)=>{
         
     }
 }
+
+// deparment action
+
+export const depaValue =(data)=>{
+    return{
+        type:"DEPDATA",
+        payload:data
+    }
+}
+
+export const depaDelet =(data)=>{
+    return{
+        type:"DEPDELET",
+        payload:data
+    }
+}
+
+export const depaEdit =(data)=>{
+    return{
+        type:"DEPEDIT",
+        payload:data
+    }
+}
+
+export const depaUpdate =(data)=>{
+    return{
+        type:"DEPUPDATE",
+        payload:data
+    }
+}
+
+// account action
 
 export const signUp =(data)=>{
     return{

@@ -36,19 +36,18 @@ const updateValue = (state, payload) => {
   console.log("update value", state, payload);
 
   const newValue = state.Data.map((item) => {
-    
     if (item.id == payload.id) {
       return payload;
     } else {
       return item;
     }
   });
-  
-  console.log("newvalue",newValue);
-  console.log("newstate",state);
+
+  console.log("newvalue", newValue);
+  console.log("newstate", state);
   return {
     ...state,
-    Data: newValue
+    Data: newValue,
   };
 };
 
@@ -57,7 +56,6 @@ const formReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FORMDATA":
       return formValue(state, action.payload);
-      
 
     case "DELETDATA":
       return deletValue(state, action.payload);

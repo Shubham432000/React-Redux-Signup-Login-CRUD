@@ -17,19 +17,19 @@ const Login = () => {
   const validateData = () => {
     if (!email) {
       toast.warn("Please Enter Valid Email !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
     if (!password) {
       toast.warn("Please Enter Password !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
     if (password.length < 6) {
       toast.warn("Please Enter Minimum 6 digit Password !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
@@ -42,11 +42,10 @@ const Login = () => {
       return true;
     } else {
       toast.error("Wrong Crendiential !", {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       return false;
     }
-    
   };
 
   function submitForm(e) {

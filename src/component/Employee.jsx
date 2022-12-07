@@ -1,52 +1,72 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deletData } from "../action/Action";
-import {FaTrashAlt} from "react-icons/fa"
-import {HiPencilAlt} from "react-icons/hi"
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import { editData } from "../action/Action";
-import { toast, ToastContainer } from 'react-toastify';
+//import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import swal from "sweetalert";
+import Table from "./Table";
 
 const Employee = () => {
   const detectForm = useSelector((state) => state.formReducer);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   console.log("employee", detectForm);
 
   function removeData(employeeData) {
-    // var delet = window.confirm("do you really want delet information")
-    console.log("employeeData", employeeData);
-msg(employeeData)
-    // if (
-    //   window.confirm(
-    //     `Are you sure you want to delete the record ${employeeData.first}`
-    //   )
-    //   // toast.success(` ${employeeData.first} your record delete succesfully`, {
-    //   //   position: toast.POSITION.TOP_CENTER
-    //   // })
-    // ) {
-    //   dispatch(deletData(employeeData.id));
+    // if(msg(employeeData)){
+    // dispatch(deletData(employeeData.id));
     // }
-    dispatch(deletData(employeeData.id));
+
+    swal({
+      title: `${employeeData.first} Are you sure?`,
+      text: "Once deleted, you will not be able to recover this information!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        dispatch(deletData(employeeData.id));
+        swal("Poof! Your information  has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your information  is safe!");
+      }
+    });
   }
 
-  function msg(employeeData){
-    toast.success(` ${employeeData.first} your record delete succesfully`, {
-      position: toast.POSITION.TOP_CENTER})
+  function editValue(edit) {
+    dispatch(editData(edit.id));
+
+    navigate("/editEmployee");
   }
 
-  function editValue(edit){
+  const rows = [
+    { label: "First name", value: "first" },
+    { label: "Last name", value: "last" },
+    { label: "Add1", value: "add1" },
+    { label: "Add2", value: "add2" },
+    { label: "Mobile no", value: "mob" },
+    { label: "Pan no", value: "pan" },
+    { label: "Gender", value: "gender" },
+    { label: "Martiual status", value: "mart" },
+  ];
 
-    dispatch(editData(edit.id))
-    
-    navigate("/editEmployee")
+  Table.propTypes = {
+    coloumns: PropTypes.string,
+    rows: PropTypes.string,
+    title: PropTypes.string,
+    delet: PropTypes.function,
+    edit: PropTypes.function,
   }
-
+  
   return (
     <div className="ml-[250px] mt-[100px]">
-      <h1 className="ml-[350px] mb-[50px]">View Employee</h1>
-      <table className="table-fixed border-collapse border border-slate-400">
+      {/* <h1 className="ml-[350px] mb-[50px]">View Employee</h1> */}
+      {/* <table className="table-fixed border-collapse border border-slate-400">
         <thead>
           <tr>
             <th className="border border-slate-300 p-4">First name</th>
@@ -72,35 +92,29 @@ msg(employeeData)
               <td className="border border-slate-300 p-4">{item.gender}</td>
               <td className="border border-slate-300 p-4">{item.mart}</td>
               <td className="border border-slate-300 p-4">
-              <HiPencilAlt  onClick={()=>editValue(item)}/>
+                <HiPencilAlt onClick={() => editValue(item)} />
               </td>
               <td className="border border-slate-300 p-4">
-              <FaTrashAlt onClick={() => removeData(item)}/>
-             
+                <FaTrashAlt onClick={() => removeData(item)} />
               </td>
             </tr>
-            
           ))}
         </tbody>
-      </table>
-      <ToastContainer autoClose={2000}/>
+      </table>  */}
+      {/* <ToastContainer autoClose={2000} /> */}
+      
+      <Table
+        coloumns={detectForm.Data}
+        rows={rows}
+        title={"Employees"}
+        delet={removeData}
+        edit={editValue}
+      />
     </div>
-    
   );
 };
 
 export default Employee;
-
-
-
-
-
-
-
-
-
-
-
 
 // (e)=>{deletData(e,index)}
 
