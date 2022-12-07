@@ -5,9 +5,10 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import Table from "./Table";
 import { depaDelet } from "../action/Action";
 import { depaEdit } from "../action/Action";
-import { toast, ToastContainer } from "react-toastify";
+//import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import swal from "sweetalert";
+import PropTypes from 'prop-types';
 
 const Deparment = () => {
   const val = useSelector((state) => state.deparmentReducer);
@@ -55,6 +56,14 @@ const Deparment = () => {
     { label: "No Of Empoyee", value: "noemployee" },
     { label: "Head Of Deparment", value: "hod" },
   ];
+
+  Table.propTypes = {
+    coloumns: PropTypes.string,
+    rows: PropTypes.string,
+    title: PropTypes.string,
+    delet: PropTypes.function,
+    edit: PropTypes.function,
+  }
   return (
     <>
       <div className="container  flex flex-row justify-end mt-[70px] cursor-pointer">

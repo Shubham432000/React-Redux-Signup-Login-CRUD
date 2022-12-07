@@ -2,7 +2,9 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
 
-const Table = ({ coloumns = [], rows, title, delet, edit }) => {
+const Table = (props) => {
+    let {coloumns =[], rows, title, delet, edit}=props
+   
   return (
     <>
       <div className="ml-[100px] mt-[100px]">

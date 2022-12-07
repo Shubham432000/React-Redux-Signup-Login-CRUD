@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deletData } from "../action/Action";
-import { FaTrashAlt } from "react-icons/fa";
-import { HiPencilAlt } from "react-icons/hi";
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import { editData } from "../action/Action";
-import { toast, ToastContainer } from "react-toastify";
+//import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import swal from "sweetalert";
 import Table from "./Table";
@@ -56,6 +55,14 @@ const Employee = () => {
     { label: "Martiual status", value: "mart" },
   ];
 
+  Table.propTypes = {
+    coloumns: PropTypes.string,
+    rows: PropTypes.string,
+    title: PropTypes.string,
+    delet: PropTypes.function,
+    edit: PropTypes.function,
+  }
+  
   return (
     <div className="ml-[250px] mt-[100px]">
       {/* <h1 className="ml-[350px] mb-[50px]">View Employee</h1> */}
@@ -95,7 +102,7 @@ const Employee = () => {
         </tbody>
       </table>  */}
       {/* <ToastContainer autoClose={2000} /> */}
-
+      
       <Table
         coloumns={detectForm.Data}
         rows={rows}
