@@ -58,6 +58,22 @@ const Navbar = () => {
             >
               Deparment 
             </Link>
+            
+            {<div>
+              
+            <Link
+              className="mr-5 hover:text-black-900 cursor-pointer hover:text-white hover:bg-sky-700 rounded-full px-2 py-1"
+             
+              to="/deparment/accountform"
+              
+            >
+              Account
+            </Link>
+            
+            {/* <Outlet/> */}
+            </div>}
+           
+            
             <Link
               className="mr-5 hover:text-black-900 cursor-pointer hover:text-white hover:bg-red-700 rounded-full px-2 py-1"
               onClick={logout1}

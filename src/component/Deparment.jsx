@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import {Outlet,  useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import Table from "./Table";
@@ -9,6 +9,7 @@ import { depaEdit } from "../action/Action";
 import "react-toastify/dist/ReactToastify.css";
 import swal from "sweetalert";
 import PropTypes from 'prop-types';
+//import { Link } from "react-router-dom";
 
 const Deparment = () => {
   const val = useSelector((state) => state.deparmentReducer);
@@ -52,17 +53,17 @@ const Deparment = () => {
 
   const rows = [
     { label: "Deparment name", value: "depname" },
-    { label: "Employee Id", value: "identity" },
+    { label: "Department Id", value: "identity" },
     { label: "No Of Empoyee", value: "noemployee" },
     { label: "Head Of Deparment", value: "hod" },
   ];
 
   Table.propTypes = {
-    coloumns: PropTypes.string,
-    rows: PropTypes.string,
+    coloumns: PropTypes.array,
+    rows: PropTypes.array,
     title: PropTypes.string,
-    delet: PropTypes.function,
-    edit: PropTypes.function,
+    delet: PropTypes.func,
+    edit: PropTypes.func,
   }
   return (
     <>
@@ -70,6 +71,11 @@ const Deparment = () => {
         <div>
           <AiOutlinePlusCircle onClick={() => deparmentPage()} size="35px" />
         </div>
+        {/* <div className="ml-[30px]">
+          <Link  to="/deparment/accountform">Account</Link>
+        </div>
+        <Outlet/> */}
+         <Outlet/>
       </div>
       <div className="ml-[400px] mt-[100px]">
         {/* <h1 className="ml-[250px] mb-[50px]">Deparment Employee</h1> */}

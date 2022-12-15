@@ -26,15 +26,15 @@ const Table = (props) => {
                 <tr key={item.id}>
                   {rows.map((val) => {
                     return (
-                      <td className="border border-slate-300 p-4">
+                      <td key={item.id} className="border border-slate-300 p-4">
                         {item[val.value]}
                       </td>
                     );
                   })}
-                   <td className="border border-slate-300 p-4">
+                   <td  className="border border-slate-300 p-4">
                 <HiPencilAlt onClick={() => edit(item)} />
               </td>
-              <td className="border border-slate-300 p-4">
+              <td  className="border border-slate-300 p-4">
                 <FaTrashAlt onClick={() => delet(item)} />
               </td>
                 </tr>
@@ -42,21 +42,7 @@ const Table = (props) => {
             })}
           </tbody>
 
-          {/* <tbody>
-            {coloumns.map((item) => {
-             return (rows.map((val) => {
-                return (
-                  <tr key={item.id}>
-                   
-                    <td className="border border-slate-300 p-4">
-                      {item[val.value]}
-                    </td>
-                   
-                  </tr>
-                );
-              }))
-            })}
-          </tbody> */}
+         
         </table>
       </div>
     </>

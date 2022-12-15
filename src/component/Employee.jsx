@@ -56,11 +56,11 @@ const Employee = () => {
   ];
 
   Table.propTypes = {
-    coloumns: PropTypes.string,
-    rows: PropTypes.string,
+    coloumns: PropTypes.array,
+    rows: PropTypes.array,
     title: PropTypes.string,
-    delet: PropTypes.function,
-    edit: PropTypes.function,
+    delet: PropTypes.func,
+    edit: PropTypes.func,
   }
   
   return (

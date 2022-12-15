@@ -31,6 +31,36 @@ export const updateValue =(data)=>{
     }
 }
 
+// account2
+export const accountValue =(data)=>{
+    return{
+        type:"ACCDATA",
+        payload:data
+    }
+}
+
+export const accountDelet =(data)=>{
+    return{
+        type:"ACCDELET",
+        payload:data
+    }
+}
+
+export const accountEdit =(data)=>{
+    return{
+        type:"ACCEDIT",
+        payload:data
+    }
+}
+
+export const accountUpdate =(data)=>{
+    return{
+        type:"ACCUPDATE",
+        payload:data
+    }
+}
+
+
 // deparment action
 
 export const depaValue =(data)=>{
