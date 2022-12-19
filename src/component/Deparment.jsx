@@ -81,7 +81,7 @@ const Deparment = () => {
           delet={removeDepa}
           edit={editDepa}
           onRowClick={(item) => {
-            navigate(`/deparmentdetails/${item.id}`);
+            navigate(`/deparmentdetails/${item.depname}`);
             console.log('item2', item);
           }}
         />

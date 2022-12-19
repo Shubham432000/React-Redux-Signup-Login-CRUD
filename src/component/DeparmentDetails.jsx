@@ -12,7 +12,7 @@ import { useState ,useEffect} from 'react';
 
 const DeparmentDetails = () => {
 
-     const Account = useSelector((state)=>state.deparmentReducer)
+     const Account = useSelector((state)=>state.formReducer)
 
 
     const [data,setData]=useState([])
@@ -23,8 +23,8 @@ const {id}=useParams()
 
 
 const compare=()=>{
-  let compareData=Account.Info.filter((item)=>{
-    return(item.id == id)
+  let compareData=Account.Data.filter((item)=>{
+    return(item.depa == id)
   })
  setData(compareData)
   console.log("compare",compareData);
@@ -78,6 +78,7 @@ useEffect(() => {
       }
   return (
     <>
+    <div className='ml-[250px]'>
       <Table
        //coloumns={Account.accountData}
        coloumns={data}
@@ -87,7 +88,7 @@ useEffect(() => {
       //   delet={removeAcc}
       //  edit={editAcc}
        />
-       
+     </div>  
     </>
   );
 }
