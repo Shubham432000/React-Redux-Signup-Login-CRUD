@@ -13,9 +13,9 @@ import Deparment from './component/Deparment';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditDeparment from './component/EditDeparment';
-import AccountForm from './component/AccountForm';
-import AccountInfo from './component/AccountInfo';
-import AccountEdit from './component/Accountedit';
+// import AccountForm from './component/AccountForm';
+import DeparmentDetails from './component/DeparmentDetails';
+//import AccountEdit from './component/Accountedit';
 // import Table from "./component/Table";
 export const App = () => {
   return (
@@ -28,11 +28,11 @@ export const App = () => {
           <Route path="/employee" element={<Employee />} />
           <Route path="/editEmployee" element={<EditEmployee />} />
           <Route path="/deparmentform" element={<DeparmentForm />} />
-          <Route path="/deparment" element={<Deparment />}>
-            <Route path="accountform" element={<AccountForm />} />
-            <Route path="accountinfo" element={<AccountInfo />} />
-            <Route path="accountedit" element={<AccountEdit />} />
-          </Route>
+          <Route path="/deparment" element={<Deparment />}/>
+            {/* <Route path="accountform" element={<AccountForm />} /> */}
+            <Route path="deparmentdetails/:id" element={<DeparmentDetails />} />
+            {/* <Route path="accountedit" element={<AccountEdit />} /> */}
+          
           <Route path="/editdeparment" element={<EditDeparment />} />
           {/* <Route path="/accountform" element={<AccountForm />}/>
           <Route path="/accountinfo" element={<AccountInfo />}/>

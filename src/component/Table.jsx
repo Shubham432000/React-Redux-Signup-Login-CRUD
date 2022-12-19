@@ -1,10 +1,11 @@
-import React from "react";
-import { FaTrashAlt } from "react-icons/fa";
-import { HiPencilAlt } from "react-icons/hi";
+import React from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
+import { HiPencilAlt } from 'react-icons/hi';
+//import { Link } from 'react-router-dom';
 
 const Table = (props) => {
-    let {coloumns =[], rows, title, delet, edit}=props
-   
+  let { coloumns = [], rows, title, delet, edit,onRowClick } = props;
+
   return (
     <>
       <div className="ml-[100px] mt-[100px]">
@@ -23,26 +24,27 @@ const Table = (props) => {
           <tbody>
             {coloumns.map((item) => {
               return (
-                <tr key={item.id}>
-                  {rows.map((val) => {
-                    return (
-                      <td key={item.id} className="border border-slate-300 p-4">
-                        {item[val.value]}
-                      </td>
-                    );
-                  })}
-                   <td  className="border border-slate-300 p-4">
-                <HiPencilAlt onClick={() => edit(item)} />
-              </td>
-              <td  className="border border-slate-300 p-4">
-                <FaTrashAlt onClick={() => delet(item)} />
-              </td>
+                <tr key={item.id} onClick={()=>onRowClick(item)}>
+                  
+                    {rows.map((val) => {
+                      return (
+                        <td key={item.id} className="border border-slate-300 p-4">
+                          {item[val.value]}
+                        </td>
+                      );
+                    })}
+                  
+                  
+                  <td key={item.id} className="border border-slate-300 p-4">
+                    <HiPencilAlt onClick={() => edit(item)} />
+                  </td>
+                  <td key={item.id} className="border border-slate-300 p-4">
+                    <FaTrashAlt onClick={() => delet(item)} />
+                  </td>
                 </tr>
               );
             })}
           </tbody>
-
-         
         </table>
       </div>
     </>

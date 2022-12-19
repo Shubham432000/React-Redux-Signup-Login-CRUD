@@ -45,7 +45,7 @@ const DeparmentForm = () => {
                 className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
               />
               <label htmlFor="" className="mt-[20px]">
-                 Id
+              Department Id
               </label>
               <input
                 type="text"

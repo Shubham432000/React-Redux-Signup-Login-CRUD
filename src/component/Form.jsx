@@ -1,66 +1,73 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { formData } from "../action/Action";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { formData } from '../action/Action';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Form = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
-  const [add1, setAdd1] = useState("");
-  const [add2, setAdd2] = useState("");
-  const [mob, setMob] = useState("");
-  const [pan, setPan] = useState("");
-  const [gender, setGender] = useState("");
-  const [mart, setMart] = useState("");
+  const [first, setFirst] = useState('');
+  const [last, setLast] = useState('');
+  const [depa, setDepa] = useState('');
+  const [add1, setAdd1] = useState('');
+  const [add2, setAdd2] = useState('');
+  const [mob, setMob] = useState('');
+  const [pan, setPan] = useState('');
+  const [gender, setGender] = useState('');
+  const [mart, setMart] = useState('');
 
   let date = new Date();
   let id = date.getTime();
   const validatedata = () => {
     if (!first) {
-      toast.warn("Please Enter Valid Name !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Valid Name !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (!last) {
-      toast.warn("Please Enter Valid Last Name !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Valid Last Name !', {
+        position: toast.POSITION.TOP_CENTER
+      });
+      return false;
+    }
+    if (!depa) {
+      toast.warn('Please Enter  deparment !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (!add1) {
-      toast.warn("Please Enter  Address1 !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter  Address1 !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (!mob) {
-      toast.warn("Please Enter Address2 !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Address2 !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
 
     if (!pan) {
-      toast.warn("Please Enter Pan No !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Pan No !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
 
     if (!gender) {
-      toast.warn("Please Enter Gender !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Gender !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (!mart) {
-      toast.warn("Please Enter martiual status !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter martiual status !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
@@ -70,7 +77,7 @@ const Form = () => {
 
   const Data = (e) => {
     e.preventDefault();
-    console.log(first, last, add1, add2, pan, gender, mart);
+    console.log(first, last,depa, add1, add2, pan, gender, mart);
 
     if (validatedata()) {
       dispatch(
@@ -78,21 +85,22 @@ const Form = () => {
           id,
           first,
           last,
+          depa,
           add1,
           add2,
           mob,
           pan,
           gender,
-          mart,
+          mart
         })
       );
-      navigate("/employee");
+      navigate('/employee');
     }
   };
   return (
     <section>
       <form action="" onSubmit={Data}>
-        <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[700px] h-[450px] ml-[350px] mt-[30px]">
+        <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[700px] h-[500px] ml-[350px] mt-[30px]">
           <div className="flex flex-col justify-center ml-[50px]">
             <div className="flex flex-row mt-[20px]">
               <label htmlFor="" className="mt-[7px]">
@@ -118,7 +126,25 @@ const Form = () => {
                 className="w-[200px] h-[30px] ml-[5px] mt-[5px] border border-indigo-600 pl-2"
               />
             </div>
+
+            
             <div className="flex flex-col mt-[20px]">
+            <label htmlFor="" className="ml-0">
+                Deparment:
+              </label>
+              <select
+                name=""
+                id=""
+                className="ml-0 w-[100px]"
+                required
+                placeholder='select deparment'
+                onChange={(e) => setDepa(e.target.value)}>
+                
+                <option>HR</option>
+                <option>Admin</option>
+                <option>Sales</option>
+              </select>
+
               <label htmlFor="" className="mt-[7px]">
                 Address1
               </label>
@@ -169,8 +195,7 @@ const Form = () => {
                 id=""
                 className="ml-4"
                 required
-                onChange={(e) => setGender(e.target.value)}
-              >
+                onChange={(e) => setGender(e.target.value)}>
                 <option></option>
                 <option>Male</option>
                 <option>Female</option>
@@ -184,12 +209,12 @@ const Form = () => {
                 id=""
                 className="ml-4"
                 required
-                onChange={(e) => setMart(e.target.value)}
-              >
+                onChange={(e) => setMart(e.target.value)}>
                 <option></option>
                 <option>Married</option>
                 <option>Unmarried</option>
               </select>
+            
             </div>
           </div>
         </div>
@@ -203,3 +228,5 @@ const Form = () => {
 };
 
 export default Form;
+
+// 3000/employee /add
