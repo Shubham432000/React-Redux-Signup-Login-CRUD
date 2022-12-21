@@ -33,40 +33,27 @@ const compare=()=>{
 useEffect(() => {
  compare()
 }, [id]);
-    // function removeAcc(Data) {
-    //   // if(msg(employeeData)){
-    //   // dispatch(deletData(employeeData.id));
-    //   // }
-  
-    //   swal({
-    //     title: `${Data.name} Are you sure?`,
-    //     text: "Once deleted, you will not be able to recover this information!",
-    //     icon: "warning",
-    //     buttons: true,
-    //     dangerMode: true,
-    //   }).then((willDelete) => {
-    //     if (willDelete) {
-    //       dispatch(accountDelet(Data.id));
-    //       swal("Poof! Your information  has been deleted!", {
-    //         icon: "success",
-    //       });
-    //     } else {
-    //       swal("Your information  is safe!");
-    //     }
-    //   });
-    // }
+    
 
-    // // function editAcc(edit) {
-    // //   dispatch(accountEdit(edit.id));
-  
-    // //  // navigate("/deparment/accountedit");
-    // // }
+   
 
-    const rows = [
-        { label: "Employee name", value: "name" },
-        { label: "salary", value: "salary" },
-        { label: "Mobile No", value: "mob" },
-        { label: "Resignation", value: "resignation" },
+    // const rows = [
+    //     { label: "Employee name", value: "name" },
+    //     { label: "salary", value: "salary" },
+    //     { label: "Mobile No", value: "mob" },
+    //     { label: "Resignation", value: "resignation" },
+    //   ];
+
+      const rows = [
+        { label: "First name", value: "first" },
+        { label: "Last name", value: "last" },
+        { label: "Deparment", value: "depa" },
+        { label: "Add1", value: "add1" },
+        { label: "Add2", value: "add2" },
+        { label: "Mobile no", value: "mob" },
+        { label: "Pan no", value: "pan" },
+        { label: "Gender", value: "gender" },
+        { label: "Martiual status", value: "mart" },
       ];
 
       Table.propTypes = {
@@ -78,7 +65,7 @@ useEffect(() => {
       }
   return (
     <>
-    <div className='ml-[250px]'>
+    <div >
       <Table
        //coloumns={Account.accountData}
        coloumns={data}

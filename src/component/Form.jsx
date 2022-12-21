@@ -77,7 +77,7 @@ const Form = () => {
 
   const Data = (e) => {
     e.preventDefault();
-    console.log(first, last,depa, add1, add2, pan, gender, mart);
+    console.log(first, last, depa, add1, add2, pan, gender, mart);
 
     if (validatedata()) {
       dispatch(
@@ -127,9 +127,8 @@ const Form = () => {
               />
             </div>
 
-            
             <div className="flex flex-col mt-[20px]">
-            <label htmlFor="" className="ml-0">
+              <label htmlFor="" className="ml-0">
                 Deparment:
               </label>
               <select
@@ -137,9 +136,8 @@ const Form = () => {
                 id=""
                 className="ml-0 w-[100px]"
                 required
-                placeholder='select deparment'
+                placeholder="select deparment"
                 onChange={(e) => setDepa(e.target.value)}>
-                
                 <option>HR</option>
                 <option>Admin</option>
                 <option>Sales</option>
@@ -214,7 +212,6 @@ const Form = () => {
                 <option>Married</option>
                 <option>Unmarried</option>
               </select>
-            
             </div>
           </div>
         </div>

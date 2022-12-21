@@ -72,7 +72,7 @@ const Deparment = () => {
         </div>
         
       </div>
-      {/* <div className="ml-[400px] mt-[100px]"> */}
+      <div className="ml-[200px] mt-[10px]">
        
         <Table
           coloumns={val.Info}
@@ -85,7 +85,7 @@ const Deparment = () => {
             console.log('item2', item);
           }}
         />
-      {/* </div> */}
+      </div>
     </>
   );
 };
