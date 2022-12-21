@@ -1,24 +1,24 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { AiOutlinePlusCircle } from "react-icons/ai";
-import Table from "./Table";
-import { depaDelet } from "../action/Action";
-import { depaEdit } from "../action/Action";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
+import Table from './Table';
+import { depaDelet } from '../action/Action';
+import { depaEdit } from '../action/Action';
 //import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import swal from "sweetalert";
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 
 const Deparment = () => {
   const val = useSelector((state) => state.deparmentReducer);
   const navigate = useNavigate();
-  console.log("infor", val);
+  console.log('infor', val);
 
   const dispatch = useDispatch();
 
   const deparmentPage = () => {
-    navigate("/deparmentform");
+    navigate('/deparmentform');
   };
 
   function removeDepa(Data) {
@@ -28,18 +28,18 @@ const Deparment = () => {
 
     swal({
       title: `${Data.depname} Are you sure?`,
-      text: "Once deleted, you will not be able to recover this information!",
-      icon: "warning",
+      text: 'Once deleted, you will not be able to recover this information!',
+      icon: 'warning',
       buttons: true,
-      dangerMode: true,
+      dangerMode: true
     }).then((willDelete) => {
       if (willDelete) {
         dispatch(depaDelet(Data.id));
-        swal("Poof! Your information  has been deleted!", {
-          icon: "success",
+        swal('Poof! Your information  has been deleted!', {
+          icon: 'success'
         });
       } else {
-        swal("Your information  is safe!");
+        swal('Your information  is safe!');
       }
     });
   }
@@ -47,61 +47,43 @@ const Deparment = () => {
   function editDepa(edit) {
     dispatch(depaEdit(edit.id));
 
-    navigate("/editdeparment");
+    navigate('/editdeparment');
   }
 
   const rows = [
-    { label: "Deparment name", value: "depname" },
-    { label: "Employee Id", value: "identity" },
-    { label: "No Of Empoyee", value: "noemployee" },
-    { label: "Head Of Deparment", value: "hod" },
+    { label: 'Deparment name', value: 'depname' },
+    { label: 'Department Id', value: 'identity' },
+    { label: 'No Of Employee', value: 'noemployee' },
+    { label: 'Head Of Deparment', value: 'hod' }
   ];
 
   Table.propTypes = {
-    coloumns: PropTypes.string,
-    rows: PropTypes.string,
+    coloumns: PropTypes.array,
+    rows: PropTypes.array,
     title: PropTypes.string,
-    delet: PropTypes.function,
-    edit: PropTypes.function,
-  }
+    delet: PropTypes.func,
+    edit: PropTypes.func
+  };
   return (
     <>
       <div className="container  flex flex-row justify-end mt-[70px] cursor-pointer">
         <div>
           <AiOutlinePlusCircle onClick={() => deparmentPage()} size="35px" />
         </div>
+        
       </div>
-      <div className="ml-[400px] mt-[100px]">
-        {/* <h1 className="ml-[250px] mb-[50px]">Deparment Employee</h1> */}
-        {/* <table className="table-fixed border-collapse border border-slate-400">
-          <thead>
-            <tr>
-              <th className="border border-slate-300 p-4">Deparment name</th>
-              <th className="border border-slate-300 p-4">Employee Id</th>
-              <th className="border border-slate-300 p-4">No Of Empoyee</th>
-              <th className="border border-slate-300 p-4">Head Of Deparment</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {val.Info.map((item) => (
-              <tr key={item.id}>
-                <td className="border border-slate-300 p-4">{item.depname}</td>
-                <td className="border border-slate-300 p-4">{item.identity}</td>
-                <td className="border border-slate-300 p-4">
-                  {item.noemployee}
-                </td>
-                <td className="border border-slate-300 p-4">{item.hod}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
+      <div className="ml-[200px] mt-[10px]">
+       
         <Table
           coloumns={val.Info}
           rows={rows}
-          title={"Deparment"}
+          title={'Deparment'}
           delet={removeDepa}
           edit={editDepa}
+          onRowClick={(item) => {
+            navigate(`/deparmentdetails/${item.depname}`);
+            console.log('item2', item);
+          }}
         />
       </div>
     </>

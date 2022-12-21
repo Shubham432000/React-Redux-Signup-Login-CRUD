@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { depaValue } from "../action/Action";
+import { accountValue } from "../action/Action";
 import { useNavigate } from "react-router-dom";
 
 
-const DeparmentForm = () => {
+const AccountForm = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -13,62 +13,62 @@ const DeparmentForm = () => {
     const time = new Date()
     const id = time.getTime()
 
-    const [depname,setdepName]=useState("")
-    const [identity,setIdentity]=useState("")
-    const [noemployee,setNoemployee]=useState("")
-    const [hod,setHod]=useState("")
+    const [name,setName]=useState("")
+    const [salary,setSalary]=useState("")
+    const [mob,setMob]=useState("")
+    const [resignation,setResignation]=useState("")
 
-    const depaForm =(e)=>{
+    const accountForm =(e)=>{
       e.preventDefault();
-        dispatch(depaValue({id,depname,identity,noemployee,hod})
+        dispatch(accountValue({id,name,salary,mob,resignation})
         )
         
-        navigate("/deparment")
+       navigate("/deparment/accountinfo")
         
     }
   return (
     <>
       <section>
         
-        <form action="" onSubmit={depaForm}>
+        <form action="" onSubmit={accountForm}>
           <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[300px] h-[420px] ml-[500px] mt-[100px]">
-            <h1 className="text-center mt-2">Deparment Form</h1>
+            <h1 className="text-center mt-2">Account Form</h1>
             <div className="flex flex-col justify-center ml-[50px]">
             
               <label htmlFor="" className="mt-[20px]">
-              Deparment Name
+              Employee Name
               </label>
               <input
                 type="text"
-                value={depname}
-                onChange={(e) => setdepName(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
               />
               <label htmlFor="" className="mt-[20px]">
-              Department Id
+                 Salary
               </label>
               <input
                 type="text"
-                value={identity}
-                onChange={(e) => setIdentity(e.target.value)}
+                value={salary}
+                onChange={(e) => setSalary(e.target.value)}
                 className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
               />
               <label htmlFor="" className="mt-[20px]">
-                No Of Employee
+                Mobile Number
               </label>
               <input
                 type="text"
-                value={noemployee}
-                onChange={(e) => setNoemployee(e.target.value)}
+                value={mob}
+                onChange={(e) => setMob(e.target.value)}
                 className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
               />
               <label htmlFor="" className="mt-[20px]">
-                Head Of Deparment
+                Resignation
               </label>
               <input
                 type="text"
-                value={hod}
-                onChange={(e) => setHod(e.target.value)}
+                value={resignation}
+                onChange={(e) => setResignation(e.target.value)}
                 className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
               />
             </div>
@@ -83,4 +83,5 @@ const DeparmentForm = () => {
   );
 };
 
-export default DeparmentForm;
+export default AccountForm;
+

@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { updateValue } from "../action/Action";
-import {  ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import swal from "sweetalert";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { updateValue } from '../action/Action';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
 
 const EditEmployee = () => {
   const employeeData = useSelector((state) => state.formReducer);
@@ -17,6 +17,7 @@ const EditEmployee = () => {
 
   const [first, setFirst] = useState(employeeData.Data1.first);
   const [last, setLast] = useState(employeeData.Data1.last);
+  const [depa, setDepa] = useState(employeeData.Data1.depa);
   const [add1, setAdd1] = useState(employeeData.Data1.add1);
   const [add2, setAdd2] = useState(employeeData.Data1.add2);
   const [mob, setMob] = useState(employeeData.Data1.mob);
@@ -28,14 +29,12 @@ const EditEmployee = () => {
   const onSubmit = () => {
     if (
       swal({
-        icon: "success",
-        title: `${employeeData.Data1.first} Your Information Edit Succesfully`,
+        icon: 'success',
+        title: `${employeeData.Data1.first} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(
-        updateValue({ id, first, last, add1, add2, mob, pan, gender, mart })
-      );
-      navigate("/employee");
+      dispatch(updateValue({ id, first, last, depa, add1, add2, mob, pan, gender, mart }));
+      navigate('/employee');
     }
   };
 
@@ -72,6 +71,20 @@ const EditEmployee = () => {
                 />
               </div>
               <div className="flex flex-col mt-[20px]">
+                <label htmlFor="" className="ml-0">
+                  Deparment:
+                </label>
+                <select
+                  name=""
+                  id=""
+                  className="ml-0 w-[100px]"
+                  required
+                  placeholder="select deparment"
+                  onChange={(e) => setDepa(e.target.value)}>
+                  <option>HR</option>
+                  <option>Admin</option>
+                  <option>Sales</option>
+                </select>
                 <label htmlFor="" className="mt-[7px]">
                   Address1
                 </label>
@@ -123,8 +136,7 @@ const EditEmployee = () => {
                   className="ml-4"
                   value={gender}
                   required
-                  onChange={(e) => setGender(e.target.value)}
-                >
+                  onChange={(e) => setGender(e.target.value)}>
                   <option></option>
                   <option>Male</option>
                   <option>Female</option>
@@ -139,8 +151,7 @@ const EditEmployee = () => {
                   className="ml-4"
                   value={mart}
                   required
-                  onChange={(e) => setMart(e.target.value)}
-                >
+                  onChange={(e) => setMart(e.target.value)}>
                   <option></option>
                   <option>Married</option>
                   <option>Unmarried</option>

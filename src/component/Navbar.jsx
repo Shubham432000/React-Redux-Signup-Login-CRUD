@@ -46,18 +46,34 @@ const Navbar = () => {
               Employee
             </Link>
 
-            <Link
+            {/* <Link
               className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
               to="/form"
             >
               Form
-            </Link>
+            </Link> */}
             <Link
               className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
               to="/deparment"
             >
               Deparment 
             </Link>
+            
+          
+              
+            {/* <Link
+              className="mr-5 hover:text-black-900 cursor-pointer hover:text-white hover:bg-sky-700 rounded-full px-2 py-1"
+             
+              to="/deparment/accountform"
+              
+            >
+              Account
+            </Link>
+             */}
+           
+           
+           
+            
             <Link
               className="mr-5 hover:text-black-900 cursor-pointer hover:text-white hover:bg-red-700 rounded-full px-2 py-1"
               onClick={logout1}
