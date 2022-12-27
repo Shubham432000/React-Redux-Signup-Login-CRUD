@@ -16,6 +16,7 @@ const DeparmentDetails = () => {
 
 
     const [data,setData]=useState([])
+    
 console.log("deparment details",data);
 //const dispatch = useDispatch()
 //const navigate = useNavigate()

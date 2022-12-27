@@ -138,6 +138,7 @@ const Form = () => {
                 required
                 placeholder="select deparment"
                 onChange={(e) => setDepa(e.target.value)}>
+                <option></option>
                 <option>HR</option>
                 <option>Admin</option>
                 <option>Sales</option>

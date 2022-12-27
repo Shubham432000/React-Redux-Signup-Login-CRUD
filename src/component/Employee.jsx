@@ -71,11 +71,11 @@ const Employee = () => {
   
   return (
     <>
-    <div className="flex flex-row justify-end mt-[100px] mr-[100px]">
+    <div className="flex flex-row justify-end mt-[40px] mr-[100px]">
       <div>
           <AiOutlinePlusCircle onClick={() => addPage()} size="35px" />
         </div>
-      
+       
       
     </div>
     <Table
@@ -84,7 +84,7 @@ const Employee = () => {
         title={"Employees"}
         delet={removeData}
         edit={editValue}
-      />
+      /> 
     </>
   );
 };

@@ -44,7 +44,7 @@ const EditEmployee = () => {
         <h1 className="ml-[350px] mb-[50px]">Edit Employee</h1>
 
         <form action="" onSubmit={onSubmit}>
-          <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[700px] h-[450px] ml-[350px] mt-[30px]">
+          <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[700px] h-[500px] ml-[350px] mt-[30px]">
             <div className="flex flex-col justify-center ml-[50px]">
               <div className="flex flex-row mt-[20px]">
                 <label htmlFor="" className="mt-[7px]">
@@ -81,6 +81,7 @@ const EditEmployee = () => {
                   required
                   placeholder="select deparment"
                   onChange={(e) => setDepa(e.target.value)}>
+                    <option></option>
                   <option>HR</option>
                   <option>Admin</option>
                   <option>Sales</option>
