@@ -2,11 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Table from './Table';
 import PropTypes from 'prop-types';
-//import { accountDelet } from '../action/Action';
-//import { accountEdit } from '../action/Action';
+
 import "react-toastify/dist/ReactToastify.css";
-//import swal from "sweetalert";
-//import { useDispatch } from 'react-redux';
+
 import { useParams } from 'react-router-dom';
 import { useState ,useEffect} from 'react';
 
@@ -18,8 +16,7 @@ const DeparmentDetails = () => {
     const [data,setData]=useState([])
     
 console.log("deparment details",data);
-//const dispatch = useDispatch()
-//const navigate = useNavigate()
+
 const {id}=useParams()
 
 
