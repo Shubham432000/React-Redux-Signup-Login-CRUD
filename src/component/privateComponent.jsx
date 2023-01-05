@@ -1,22 +1,19 @@
-import React from 'react'
-import { Outlet,Navigate } from 'react-router-dom';
+import React from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 //import Navbar from '../component/Navbar';
 
- const PrivateComponent = () => {
+const PrivateComponent = () => {
   const isLoggedIn = useSelector((state) => state.account.isLoggedIn);
 
- 
   if (!isLoggedIn) {
-    return <Navigate to = "/"/>;
-    
+    return <Navigate to="/" />;
   }
-  
+
   return (
     <>
-      
-      <Outlet/>
+      <Outlet />
     </>
   );
-}
+};
 export default PrivateComponent;

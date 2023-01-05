@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { depaUpdate } from "../action/Action";
-import {  ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import swal from "sweetalert";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { depaUpdate } from '../action/Action';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
 
 const EditEmployee = () => {
   const depaData = useSelector((state) => state.deparmentReducer);
@@ -15,25 +15,23 @@ const EditEmployee = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [depname,setdepName]=useState(depaData.Info1.depname)
-  const [identity,setIdentity]=useState(depaData.Info1.identity)
-  const [noemployee,setNoemployee]=useState(depaData.Info1.noemployee)
-  const [hod,setHod]=useState(depaData.Info1.hod)
-  
+  const [depname, setdepName] = useState(depaData.Info1.depname);
+  const [identity, setIdentity] = useState(depaData.Info1.identity);
+  const [noemployee, setNoemployee] = useState(depaData.Info1.noemployee);
+  const [hod, setHod] = useState(depaData.Info1.hod);
+
   const id = depaData.Info1.id;
 
-  console.log("edit depa",depname,hod)
+  console.log('edit depa', depname, hod);
   const onSubmit = () => {
     if (
       swal({
-        icon: "success",
-        title: `${depaData.Info1.depname} Your Information Edit Succesfully`,
+        icon: 'success',
+        title: `${depname} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(
-        depaUpdate({id, depname,identity,noemployee,hod })
-      );
-      navigate("/deparment");
+      dispatch(depaUpdate({ id, depname, identity, noemployee, hod }));
+      navigate('/deparment');
     }
   };
 
@@ -91,9 +89,6 @@ const EditEmployee = () => {
                   className="w-[500px] h-[30px] ml-[5px] mt-[5px] border border-indigo-600 pl-2"
                 />
               </div>
-             
-             
-              
             </div>
           </div>
 

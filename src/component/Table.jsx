@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
-import { HiPencilAlt } from 'react-icons/hi'
+import { HiPencilAlt } from 'react-icons/hi';
 
 const Table = (props) => {
   let { coloumns = [], rows, title, delet, edit, onRowClick } = props;
@@ -28,8 +28,6 @@ const Table = (props) => {
                     return (
                       <td key={item.id} className="border border-slate-300 p-4">
                         {item[val.value]}
-                        
-                        
                       </td>
                     );
                   })}

@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { accountUpdate } from "../action/Action";
-import {  ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import swal from "sweetalert";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { accountUpdate } from '../action/Action';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
 
 const EditAccount = () => {
   const accData = useSelector((state) => state.Account2Reducer);
@@ -15,25 +15,23 @@ const EditAccount = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [name,setName]=useState(accData.accountData1.name)
-  const [salary,setSalary]=useState(accData.accountData1.salary)
-  const [mob,setMob]=useState(accData.accountData1.mob)
-  const [resignation,setResignation]=useState(accData.accountData1.resignation)
-  
+  const [name, setName] = useState(accData.accountData1.name);
+  const [salary, setSalary] = useState(accData.accountData1.salary);
+  const [mob, setMob] = useState(accData.accountData1.mob);
+  const [resignation, setResignation] = useState(accData.accountData1.resignation);
+
   const id = accData.accountData1.id;
 
   //console.log("edit depa",depname,hod)
   const onSubmit = () => {
     if (
       swal({
-        icon: "success",
-        title: `${accData.accountData1.name} Your Information Edit Succesfully`,
+        icon: 'success',
+        title: `${accData.accountData1.name} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(
-        accountUpdate({id, name,salary,mob,resignation })
-      );
-      navigate("/deparment/accountinfo");
+      dispatch(accountUpdate({ id, name, salary, mob, resignation }));
+      navigate('/deparment/accountinfo');
     }
   };
 
@@ -91,9 +89,6 @@ const EditAccount = () => {
                   className="w-[500px] h-[30px] ml-[5px] mt-[5px] border border-indigo-600 pl-2"
                 />
               </div>
-             
-             
-              
             </div>
           </div>
 

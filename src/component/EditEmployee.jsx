@@ -30,7 +30,7 @@ const EditEmployee = () => {
     if (
       swal({
         icon: 'success',
-        title: `${employeeData.Data1.first} Your Information Edit Succesfully`
+        title: `${first} Your Information Edit Succesfully`
       })
     ) {
       dispatch(updateValue({ id, first, last, depa, add1, add2, mob, pan, gender, mart }));
@@ -81,7 +81,7 @@ const EditEmployee = () => {
                   required
                   placeholder="select deparment"
                   onChange={(e) => setDepa(e.target.value)}>
-                    <option></option>
+                  <option></option>
                   <option>HR</option>
                   <option>Admin</option>
                   <option>Sales</option>
