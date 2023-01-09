@@ -38,7 +38,7 @@ const EditAccount = () => {
   return (
     <>
       <section>
-        <h1 className="ml-[350px] mb-[50px]">Edit Employee</h1>
+        <h1 className="ml-[350px] mb-[50px]">Edit </h1>
 
         <form action="" onSubmit={onSubmit}>
           <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[700px] h-[450px] ml-[350px] mt-[30px]">

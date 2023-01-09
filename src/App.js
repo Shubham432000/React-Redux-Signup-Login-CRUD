@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditDeparment from './component/EditDeparment';
 // import AccountForm from './component/AccountForm';
 import DeparmentDetails from './component/DeparmentDetails';
+import Footer from './component/Footer';
 //import AccountEdit from './component/Accountedit';
 // import Table from "./component/Table";
 export const App = () => {
@@ -34,6 +35,7 @@ export const App = () => {
             {/* <Route path="accountedit" element={<AccountEdit />} /> */}
           
           <Route path="/editdeparment" element={<EditDeparment />} />
+          <Route path="/footer" element={<Footer />}/>
           {/* <Route path="/accountform" element={<AccountForm />}/>
           <Route path="/accountinfo" element={<AccountInfo />}/>
           <Route path="/accountedit" element={<AccountEdit />}/> */}
