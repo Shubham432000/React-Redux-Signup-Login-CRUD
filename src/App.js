@@ -35,7 +35,7 @@ export const App = () => {
             {/* <Route path="accountedit" element={<AccountEdit />} /> */}
           
           <Route path="/editdeparment" element={<EditDeparment />} />
-          <Route path="/footer" element={<Footer />}/>
+          
           {/* <Route path="/accountform" element={<AccountForm />}/>
           <Route path="/accountinfo" element={<AccountInfo />}/>
           <Route path="/accountedit" element={<AccountEdit />}/> */}
