@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import account from "./accountReducer";
-import formReducer from "./formReducer";
-import deparmentReducer from "./deparmentReducer"
+import account from "./AccountReducer";
+import formReducer from "./FormReducer";
+import deparmentReducer from "./DeparmentReducer"
 import Account2Reducer from "./Account2Reducer"
 
 

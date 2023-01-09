@@ -5,7 +5,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import Table from './Table';
 import { depaDelet } from '../action/Action';
 import { depaEdit } from '../action/Action';
-//import { toast, ToastContainer } from "react-toastify";
+
 import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
@@ -22,10 +22,6 @@ const Deparment = () => {
   };
 
   function removeDepa(Data) {
-    // if(msg(employeeData)){
-    // dispatch(deletData(employeeData.id));
-    // }
-
     swal({
       title: `${Data.depname} Are you sure?`,
       text: 'Once deleted, you will not be able to recover this information!',
@@ -70,10 +66,8 @@ const Deparment = () => {
         <div>
           <AiOutlinePlusCircle onClick={() => deparmentPage()} size="35px" />
         </div>
-        
       </div>
       <div className="ml-[200px] mt-[10px]">
-       
         <Table
           coloumns={val.Info}
           rows={rows}

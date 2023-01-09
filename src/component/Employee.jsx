@@ -1,40 +1,36 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { deletData } from "../action/Action";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { deletData } from '../action/Action';
 import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom";
-import { editData } from "../action/Action";
+import { useNavigate } from 'react-router-dom';
+import { editData } from '../action/Action';
 //import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import swal from "sweetalert";
-import Table from "./Table";
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
+import Table from './Table';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const Employee = () => {
   const detectForm = useSelector((state) => state.formReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log("employee", detectForm);
+  console.log('employee', detectForm);
 
   function removeData(employeeData) {
-    // if(msg(employeeData)){
-    // dispatch(deletData(employeeData.id));
-    // }
-
     swal({
       title: `${employeeData.first} Are you sure?`,
-      text: "Once deleted, you will not be able to recover this information!",
-      icon: "warning",
+      text: 'Once deleted, you will not be able to recover this information!',
+      icon: 'warning',
       buttons: true,
-      dangerMode: true,
+      dangerMode: true
     }).then((willDelete) => {
       if (willDelete) {
         dispatch(deletData(employeeData.id));
-        swal("Poof! Your information  has been deleted!", {
-          icon: "success",
+        swal('Poof! Your information  has been deleted!', {
+          icon: 'success'
         });
       } else {
-        swal("Your information  is safe!");
+        swal('Your information  is safe!');
       }
     });
   }
@@ -42,23 +38,23 @@ const Employee = () => {
   function editValue(edit) {
     dispatch(editData(edit.id));
 
-    navigate("/editEmployee");
+    navigate('/editEmployee');
   }
 
-  const addPage=()=>{
-    navigate("/form")
-  }
+  const addPage = () => {
+    navigate('/form');
+  };
 
   const rows = [
-    { label: "First name", value: "first" },
-    { label: "Last name", value: "last" },
-    { label: "Deparment", value: "depa" },
-    { label: "Add1", value: "add1" },
-    { label: "Add2", value: "add2" },
-    { label: "Mobile no", value: "mob" },
-    { label: "Pan no", value: "pan" },
-    { label: "Gender", value: "gender" },
-    { label: "Martiual status", value: "mart" },
+    { label: 'First name', value: 'first' },
+    { label: 'Last name', value: 'last' },
+    { label: 'Deparment', value: 'depa' },
+    { label: 'Add1', value: 'add1' },
+    { label: 'Add2', value: 'add2' },
+    { label: 'Mobile no', value: 'mob' },
+    { label: 'Pan no', value: 'pan' },
+    { label: 'Gender', value: 'gender' },
+    { label: 'Martiual status', value: 'mart' }
   ];
 
   Table.propTypes = {
@@ -66,22 +62,20 @@ const Employee = () => {
     rows: PropTypes.array,
     title: PropTypes.string,
     delet: PropTypes.func,
-    edit: PropTypes.func,
-  }
-  
+    edit: PropTypes.func
+  };
+
   return (
     <>
-    <div className="flex flex-row justify-end mt-[100px] mr-[100px]">
-      <div>
+      <div className="flex flex-row justify-end mt-[40px] mr-[100px]">
+        <div>
           <AiOutlinePlusCircle onClick={() => addPage()} size="35px" />
         </div>
-      
-      
-    </div>
-    <Table
+      </div>
+      <Table
         coloumns={detectForm.Data}
         rows={rows}
-        title={"Employees"}
+        title={'Employees'}
         delet={removeData}
         edit={editValue}
       />
@@ -90,5 +84,3 @@ const Employee = () => {
 };
 
 export default Employee;
-
-
