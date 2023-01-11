@@ -4,17 +4,16 @@ import { deletData } from '../action/Action';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { editData } from '../action/Action';
-//import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 import Table from './Table';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const Employee = () => {
-  const detectForm = useSelector((state) => state.formReducer);
+  const formInformation = useSelector((state) => state.formReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log('employee', detectForm);
+  
 
   function removeData(employeeData) {
     swal({
@@ -73,7 +72,7 @@ const Employee = () => {
         </div>
       </div>
       <Table
-        coloumns={detectForm.Data}
+        coloumns={formInformation.Data}
         rows={rows}
         title={'Employees'}
         delet={removeData}

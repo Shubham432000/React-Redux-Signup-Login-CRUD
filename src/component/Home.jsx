@@ -1,20 +1,22 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { ReactComponent as Profile } from '../image/Profile.svg';
 
 const Home = () => {
   const data = useSelector((state) => state.account);
-  //const detectForm = useSelector((state) => state.formReducer);
+ 
   console.log(data);
   return (
-    // <h1>welcome {data.name}</h1>
+    
 
     <div className="ml-[500px] mt-[100px] max-w-md p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
       <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
-        <img
+        {/* <img
           src="https://t4.ftcdn.net/jpg/03/32/59/65/240_F_332596535_lAdLhf6KzbW6PWXBWeIFTovTii1drkbT.jpg"
           alt=""
           className="object-cover object-center w-full h-full rounded dark:bg-gray-500"
-        />
+        /> */}
+        <Profile/>
       </div>
       <div className="flex flex-col space-y-4">
         <div>

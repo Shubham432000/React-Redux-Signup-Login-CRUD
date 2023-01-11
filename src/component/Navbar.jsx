@@ -9,13 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const state1 = useSelector((state) => state.account);
-
-  console.log(state1);
+  const userInfo = useSelector((state) => state.account);
 
   const logout1 = () => {
     if (
-      toast.success(` ${state1.name} your Logout succesfully`, {
+      toast.success(` ${userInfo.name} your Logout succesfully`, {
         position: toast.POSITION.TOP_CENTER
       })
     ) {
@@ -26,32 +24,32 @@ const Navbar = () => {
 
   return (
     <header className="text-gray-600 body-font">
-      {state1.isLoggedIn ? (
-        <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-sky-300 shadow-md shadow-sky-100 border-b border-sky-100">
-          <a className="flex title-font font-medium items-center text-gray-900 hover:text-white hover:bg-sky-400 rounded-full mb-4 md:mb-0">
-            <span className="px-3 py-1 text-xl">MOOD</span>
+      {userInfo.isLoggedIn ? (
+        <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-blue-500 shadow-md  border-b ">
+          <a className="flex title-font font-medium items-center text-lg text-white hover:text-white hover:bg-indigo-600 rounded-md p-2 mb-4 md:mb-0">
+            <span className="px-3 py-1 text-xl">TODO</span>
           </a>
 
           <nav className="md:ml-auto flex flex-wrap items-center text-lg justify-center font-semibold">
             <Link
-              className="mr-5 text-blue-600/100 cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
+              className="mr-5 text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
               to="/home">
               Home
             </Link>
             <Link
-              className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
+              className="mr-5  cursor-pointer text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
               to="/employee">
               Employee
             </Link>
 
             <Link
-              className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
+              className="mr-5  cursor-pointer text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
               to="/deparment">
               Deparment
             </Link>
 
             <Link
-              className="mr-5 hover:text-black-900 cursor-pointer hover:text-white hover:bg-red-700 rounded-full px-2 py-1"
+              className="mr-5 text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
               onClick={logout1}
               to="/">
               Logout
@@ -59,18 +57,18 @@ const Navbar = () => {
           </nav>
         </div>
       ) : (
-        <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-sky-100 shadow-md shadow-sky-100 border-b border-sky-200 ">
-          <a className="flex title-font font-medium items-center text-gray-900 hover:text-white hover:bg-sky-400 rounded-full mb-4 md:mb-0">
-            <span className=" px-3 py-1 text-xl">MOOD</span>
+        <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-blue-500  border-b  ">
+          <a className="flex title-font font-medium items-center text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2 mb-4 md:mb-0">
+            <span className=" px-3 py-1 text-xl">TODO</span>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center  text-lg font-semibold">
             <Link
-              className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
+              className="mr-5  cursor-pointer text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
               to="/login">
               Login
             </Link>
             <Link
-              className="mr-5  cursor-pointer hover:text-white hover:bg-sky-400 rounded-full px-2 py-1"
+              className="mr-5  cursor-pointer text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
               to="/">
               Signup
             </Link>

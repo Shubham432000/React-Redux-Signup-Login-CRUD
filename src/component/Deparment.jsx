@@ -11,9 +11,8 @@ import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 
 const Deparment = () => {
-  const val = useSelector((state) => state.deparmentReducer);
+  const deparmentValue = useSelector((state) => state.deparmentReducer);
   const navigate = useNavigate();
-  console.log('infor', val);
 
   const dispatch = useDispatch();
 
@@ -69,14 +68,14 @@ const Deparment = () => {
       </div>
       <div className="ml-[200px] mt-[10px]">
         <Table
-          coloumns={val.Info}
+          coloumns={deparmentValue.Info}
           rows={rows}
           title={'Deparment'}
           delet={removeDepa}
           edit={editDepa}
           onRowClick={(item) => {
             navigate(`/deparmentdetails/${item.depname}`);
-            console.log('item2', item);
+           
           }}
         />
       </div>
