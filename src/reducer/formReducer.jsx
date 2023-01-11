@@ -1,21 +1,19 @@
 const initialState = {
   Data: [],
 };
-//console.log("initialState",initialState)
+
 const formValue = (state, payload) => {
   return {
     ...state,
 
-    // Data: [...(state.Data || []), payload],
+    
     Data: [...state.Data, payload],
   };
 };
 
 const deletValue = (state, payload) => {
   const newList = state.Data.filter((item) => item.id !== payload);
-  console.log("delelt", newList);
-  // console.log("action",action.payload)
-  console.log("state2", state);
+  
 
   return {
     ...state,
@@ -33,7 +31,7 @@ const editData = (state, payload) => {
 };
 
 const updateValue = (state, payload) => {
-  console.log("update value", state, payload);
+  
 
   const newValue = state.Data.map((item) => {
     if (item.id == payload.id) {
@@ -52,7 +50,7 @@ const updateValue = (state, payload) => {
 };
 
 const formReducer = (state = initialState, action) => {
-  console.log("state", state, action);
+  
   switch (action.type) {
     case "FORMDATA":
       return formValue(state, action.payload);

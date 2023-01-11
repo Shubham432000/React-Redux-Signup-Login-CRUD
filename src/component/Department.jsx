@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 
-const Deparment = () => {
+const Department = () => {
   const deparmentValue = useSelector((state) => state.deparmentReducer);
   const navigate = useNavigate();
 
@@ -83,4 +83,4 @@ const Deparment = () => {
   );
 };
 
-export default Deparment;
+export default Department;

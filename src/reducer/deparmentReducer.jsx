@@ -1,23 +1,20 @@
 const initialState = {
-  Info: [],
+  Info: []
 };
 
 const depaData = (state, payload) => {
   return {
     ...state,
-    Info: [...state.Info, payload],
+    Info: [...state.Info, payload]
   };
 };
 
 const depaDelet = (state, payload) => {
   const newList = state.Info.filter((item) => item.id !== payload);
-  console.log("delelt", newList);
-  // console.log("action",action.payload)
-  console.log("state2", state);
 
   return {
     ...state,
-    Info: newList,
+    Info: newList
   };
 };
 
@@ -26,13 +23,11 @@ const depaEdit = (state, payload) => {
 
   return {
     ...state,
-    Info1: updateList,
+    Info1: updateList
   };
 };
 
 const depaUpdate = (state, payload) => {
-  console.log("update value", state, payload);
-
   const newData = state.Info.map((item) => {
     if (item.id == payload.id) {
       return payload;
@@ -41,26 +36,23 @@ const depaUpdate = (state, payload) => {
     }
   });
 
-  console.log("newvalue", newData);
-  console.log("newstate", state);
   return {
     ...state,
-    Info: newData,
+    Info: newData
   };
 };
 
 const deparmentReducer = (state = initialState, action) => {
-  console.log("deparment", state);
   switch (action.type) {
-    case "DEPDATA":
+    case 'DEPDATA':
       return depaData(state, action.payload);
-    case "DEPDELET":
+    case 'DEPDELET':
       return depaDelet(state, action.payload);
 
-    case "DEPEDIT":
+    case 'DEPEDIT':
       return depaEdit(state, action.payload);
 
-    case "DEPUPDATE":
+    case 'DEPUPDATE':
       return depaUpdate(state, action.payload);
 
     default:

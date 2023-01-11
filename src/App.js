@@ -9,7 +9,7 @@ import Form from './component/Form';
 import Employee from './component/Employee';
 import EditEmployee from './component/EditEmployee';
 import DeparmentForm from './component/DeparmentForm';
-import Deparment from './component/Deparment';
+import Deparment from './component/Department';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditDeparment from './component/EditDeparment';
