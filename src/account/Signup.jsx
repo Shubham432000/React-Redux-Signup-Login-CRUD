@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signUp } from '../action/Action';
-import { ReactComponent as Signup } from '../image/signup.svg';
+import { ReactComponent as Signup1 } from '../image/signup.svg';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -66,7 +66,7 @@ const Signup = () => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24  flex flex-wrap items-center">
           <div className="svg-container md:pr-16   lg:pr-0 pr-0 w-1/2 sm:w-1/2 md:w-1/2 xl:w-1/2 lg:w-1/2 ">
-            <Signup />
+            <Signup1 />
           </div>
 
           <div className="xl:w-1/3 lg:w-1/2 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">

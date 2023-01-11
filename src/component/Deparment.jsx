@@ -75,7 +75,7 @@ const Deparment = () => {
           edit={editDepa}
           onRowClick={(item) => {
             navigate(`/deparmentdetails/${item.depname}`);
-            console.log('item2', item);
+           
           }}
         />
       </div>

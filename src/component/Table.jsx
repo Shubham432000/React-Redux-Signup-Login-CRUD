@@ -8,7 +8,7 @@ const Table = (props) => {
   return (
     <>
       <div className="ml-[100px] mt-[40px]">
-        <h1 className="ml-[500px] mb-[50px]">{title}</h1>
+        <h1 className="ml-[350px] mb-[50px]">{title}</h1>
         <table className="table-fixed border-collapse border border-slate-400">
           <thead>
             <tr>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as Login } from '../image/login.svg';
+import { ReactComponent as Login1 } from '../image/login.svg';
 import { logIn } from '../action/Action';
 import { useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
@@ -65,7 +65,7 @@ const Login = () => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24  flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap items-center">
           <div className="svg-container  md:pr-1 lg:pr-0 pr-0 w-1/2 sm:w-1/2 md:w-1/2 xl:w-1/2 lg:w-1/2">
-            <Login />
+            <Login1 />
           </div>
 
           <div className="xl:w-1/3 lg:w-1/2 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">

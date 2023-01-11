@@ -13,7 +13,7 @@ const Employee = () => {
   const formInformation = useSelector((state) => state.formReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log('employee', detectForm);
+  
 
   function removeData(employeeData) {
     swal({
