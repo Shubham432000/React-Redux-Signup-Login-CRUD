@@ -1,7 +1,6 @@
 const initialState = {};
- 
+
 const login = (state, { email, password }) => {
-    console.log("state2",state)
   return {
     ...state,
     email,
@@ -10,11 +9,9 @@ const login = (state, { email, password }) => {
   };
 };
 
-const signUp = (state,{name,email,password}) => {
-   
-    console.log("payload",name,email,password)
+const signUp = (state, { name, email, password }) => {
   return {
-      ...state,
+    ...state,
     isLoggedIn: false,
     name,
     email,
@@ -24,27 +21,25 @@ const signUp = (state,{name,email,password}) => {
 
 const logout = (state) => {
   return {
-     ...state,
+    ...state,
     isLoggedIn: false
   };
-}
+};
 
-  const accountReducer = (state=initialState , action) => {
-    console.log("state3",state);
-    switch (action.type) {
-      case "LOGIN":
-        return login(state, action.payload);
+const accountReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+      return login(state, action.payload);
 
-      case "SIGNUP":
-        return signUp(state,action.payload);
+    case 'SIGNUP':
+      return signUp(state, action.payload);
 
-      case "LOGOUT":
-        return logout(state);
+    case 'LOGOUT':
+      return logout(state);
 
-      default:
-        return state;
-    }
-  };
-  
+    default:
+      return state;
+  }
+};
+
 export default accountReducer;
-  
