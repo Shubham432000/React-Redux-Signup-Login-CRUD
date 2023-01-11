@@ -11,7 +11,7 @@ const login = (state, { email, password }) => {
 };
 
 const signUp = (state,{name,email,password}) => {
-   // console.log("state1",state);
+   
     console.log("payload",name,email,password)
   return {
       ...state,

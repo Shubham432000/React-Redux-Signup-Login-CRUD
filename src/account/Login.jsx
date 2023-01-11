@@ -1,49 +1,47 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { ReactComponent as YourSvg } from "../image/login.svg";
-import { logIn } from "../action/Action";
-import { useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { ReactComponent as Login } from '../image/login.svg';
+import { logIn } from '../action/Action';
+import { useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const account = useSelector((state) => state.account);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const validateData = () => {
     if (!email) {
-      toast.warn("Please Enter Valid Email !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Valid Email !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (!password) {
-      toast.warn("Please Enter Password !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Password !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (password.length < 6) {
-      toast.warn("Please Enter Minimum 6 digit Password !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.warn('Please Enter Minimum 6 digit Password !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
     if (email === account.email && password === account.password) {
-      // alert("Login Succecfully");
-
       toast.success(` ${account.name} your Login succesfully`, {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.TOP_CENTER
       });
       return true;
     } else {
-      toast.error("Wrong Crendiential !", {
-        position: toast.POSITION.TOP_CENTER,
+      toast.error('Wrong Crendiential !', {
+        position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
@@ -56,30 +54,25 @@ const Login = () => {
       dispatch(
         logIn({
           email,
-          password,
+          password
         })
       );
-      navigate("/home");
+      navigate('/home');
     }
   }
   return (
     <>
- <section className="text-gray-600 body-font">
+      <section className="text-gray-600 body-font">
         <div className="container px-5 py-24  flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap items-center">
           <div className="svg-container  md:pr-1 lg:pr-0 pr-0 w-1/2 sm:w-1/2 md:w-1/2 xl:w-1/2 lg:w-1/2">
-            <YourSvg />
+            <Login />
           </div>
 
           <div className="xl:w-1/3 lg:w-1/2 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-            <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
-              Login
-            </h2>
+            <h2 className="text-gray-900 text-lg font-medium title-font mb-5">Login</h2>
             <form action="" onSubmit={submitForm}>
               <div className="relative mb-4">
-                <label
-                  htmlFor="email"
-                  className="leading-7 text-sm text-gray-600"
-                >
+                <label htmlFor="email" className="leading-7 text-sm text-gray-600">
                   Email
                 </label>
                 <input
@@ -92,10 +85,7 @@ const Login = () => {
                 />
               </div>
               <div className="relative mb-4">
-                <label
-                  htmlFor="password"
-                  className="leading-7 text-sm text-gray-600"
-                >
+                <label htmlFor="password" className="leading-7 text-sm text-gray-600">
                   Password
                 </label>
                 <input
@@ -109,51 +99,14 @@ const Login = () => {
               </div>
               <button
                 type="submit"
-                className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-              >
+                className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 Login
               </button>
-              
             </form>
           </div>
         </div>
       </section>
       <ToastContainer />
-
-
-      {/* <section>
-        <form action="" onSubmit={submitForm}>
-          <div className="bg-slate-50 shadow-2xl shadow-slate-400 border border-indigo-600 w-[300px] h-[350px] ml-[500px] mt-[100px]">
-            <h1 className="text-center mt-2">Login</h1>
-            <div className="flex flex-col justify-center ml-[50px]">
-              <label htmlFor="" className="mt-[20px]">
-                Email Id
-              </label>
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
-              />
-              <label htmlFor="" className="mt-[20px]">
-                Password
-              </label>
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-[200px] h-[30px] mt-[5px] border border-indigo-600 pl-2"
-              />
-            </div>
-            <button className="ml-[120px] mt-[60px] border border-indigo-600 px-2 py-1 text-white bg-indigo-600 hover:bg-white hover:text-indigo-600">
-              Submit
-            </button>
-            <ToastContainer />
-          </div>
-        </form>
-      </section> */}
     </>
   );
 };

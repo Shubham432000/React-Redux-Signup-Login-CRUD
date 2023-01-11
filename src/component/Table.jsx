@@ -3,7 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { HiPencilAlt } from 'react-icons/hi';
 
 const Table = (props) => {
-  let { coloumns = [], rows, title, delet, edit,onRowClick } = props;
+  let { coloumns = [], rows, title, delet, edit, onRowClick } = props;
 
   return (
     <>
@@ -24,7 +24,6 @@ const Table = (props) => {
             {coloumns.map((item) => {
               return (
                 <tr key={item.id} onClick={() => onRowClick(item)}>
-                  {/* onClick={() => onRowClick(item)} */}
                   {rows.map((val) => {
                     return (
                       <td key={item.id} className="border border-slate-300 p-4">

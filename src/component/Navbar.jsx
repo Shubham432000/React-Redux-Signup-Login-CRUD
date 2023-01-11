@@ -9,13 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const state1 = useSelector((state) => state.account);
+  const userInfo = useSelector((state) => state.account);
 
-  console.log(state1);
+
 
   const logout1 = () => {
     if (
-      toast.success(` ${state1.name} your Logout succesfully`, {
+      toast.success(` ${userInfo.name} your Logout succesfully`, {
         position: toast.POSITION.TOP_CENTER
       })
     ) {
@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <header className="text-gray-600 body-font">
-      {state1.isLoggedIn ? (
+      {userInfo.isLoggedIn ? (
         <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-sky-300 shadow-md shadow-sky-100 border-b border-sky-100">
           <a className="flex title-font font-medium items-center text-gray-900 hover:text-white hover:bg-sky-400 rounded-full mb-4 md:mb-0">
             <span className="px-3 py-1 text-xl">MOOD</span>

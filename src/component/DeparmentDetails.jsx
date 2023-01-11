@@ -51,13 +51,7 @@ const DeparmentDetails = () => {
   return (
     <>
       <div>
-        <Table
-          //coloumns={Account.accountData}
-          coloumns={data}
-          rows={rows}
-          title={'deparment details'}
-          
-        />
+        <Table coloumns={data} rows={rows} title={'deparment details'} />
       </div>
     </>
   );

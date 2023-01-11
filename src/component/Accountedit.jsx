@@ -22,7 +22,6 @@ const EditAccount = () => {
 
   const id = accData.accountData1.id;
 
-  //console.log("edit depa",depname,hod)
   const onSubmit = () => {
     if (
       swal({

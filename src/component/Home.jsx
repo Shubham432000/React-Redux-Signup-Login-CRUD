@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 
 const Home = () => {
   const data = useSelector((state) => state.account);
-  //const detectForm = useSelector((state) => state.formReducer);
+ 
   console.log(data);
   return (
-    // <h1>welcome {data.name}</h1>
+    
 
     <div className="ml-[500px] mt-[100px] max-w-md p-8 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
       <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
