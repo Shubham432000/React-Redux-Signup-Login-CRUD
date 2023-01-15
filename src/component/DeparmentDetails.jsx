@@ -20,7 +20,7 @@ const DeparmentDetails = () => {
       return item.depa == id;
     });
     setData(compareData);
-    console.log('compare', compareData);
+    
   };
 
   useEffect(() => {
