@@ -2,7 +2,7 @@ const initialState = {
   Data: [],
 };
 
-const formValue = (state, payload) => {
+const employeeValue = (state, payload) => {
   return {
     ...state,
 
@@ -11,7 +11,7 @@ const formValue = (state, payload) => {
   };
 };
 
-const deletValue = (state, payload) => {
+const deletEmployee = (state, payload) => {
   const newList = state.Data.filter((item) => item.id !== payload);
   
 
@@ -21,7 +21,7 @@ const deletValue = (state, payload) => {
   };
 };
 
-const editData = (state, payload) => {
+const editEmployee = (state, payload) => {
   const updateList = state.Data.find((item) => item.id == payload);
 
   return {
@@ -30,7 +30,7 @@ const editData = (state, payload) => {
   };
 };
 
-const updateValue = (state, payload) => {
+const updateEmployee = (state, payload) => {
   
 
   const newValue = state.Data.map((item) => {
@@ -41,31 +41,30 @@ const updateValue = (state, payload) => {
     }
   });
 
-  console.log("newvalue", newValue);
-  console.log("newstate", state);
+ 
   return {
     ...state,
     Data: newValue,
   };
 };
 
-const formReducer = (state = initialState, action) => {
+const EmployeeReducer = (state = initialState, action) => {
   
   switch (action.type) {
     case "FORMDATA":
-      return formValue(state, action.payload);
+      return employeeValue(state, action.payload);
 
     case "DELETDATA":
-      return deletValue(state, action.payload);
+      return deletEmployee(state, action.payload);
 
     case "EDITDATA":
-      return editData(state, action.payload);
+      return editEmployee(state, action.payload);
 
     case "UPDATEVALUE":
-      return updateValue(state, action.payload);
+      return updateEmployee(state, action.payload);
 
     default:
       return state;
   }
 };
-export default formReducer;
+export default EmployeeReducer;

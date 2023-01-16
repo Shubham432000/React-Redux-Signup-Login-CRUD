@@ -1,13 +1,13 @@
 
-// form action
-export const formData =(data)=>{
+// Employee action
+export const employeeInformation =(data)=>{
     return{
         type:"FORMDATA",
         payload:data
     }
 }
 
-export const deletData =(data)=>{
+export const deletEmployee =(data)=>{
     return{
         type:"DELETDATA",
          payload:data
@@ -63,28 +63,28 @@ export const accountUpdate =(data)=>{
 
 // deparment action
 
-export const depaValue =(data)=>{
+export const deparmentValue =(data)=>{
     return{
         type:"DEPDATA",
         payload:data
     }
 }
 
-export const depaDelet =(data)=>{
+export const deparmentDelet =(data)=>{
     return{
         type:"DEPDELET",
         payload:data
     }
 }
 
-export const depaEdit =(data)=>{
+export const deparmentEdit =(data)=>{
     return{
         type:"DEPEDIT",
         payload:data
     }
 }
 
-export const depaUpdate =(data)=>{
+export const deparmentUpdate =(data)=>{
     return{
         type:"DEPUPDATE",
         payload:data

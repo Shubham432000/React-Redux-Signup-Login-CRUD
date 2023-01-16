@@ -5,7 +5,7 @@ import Home from './component/Home';
 import Signup from './account/Signup';
 import Login from './account/Login';
 import PrivateComponent from './component/privateComponent';
-import Form from './component/Form';
+import EmployeeForm from './component/EmployeeForm';
 import Employee from './component/Employee';
 import EditEmployee from './component/EditEmployee';
 import DeparmentForm from './component/DeparmentForm';
@@ -23,7 +23,7 @@ export const App = () => {
       <Routes>
         <Route element={<PrivateComponent />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form" element={<EmployeeForm />} />
           <Route path="/employee" element={<Employee />} />
           <Route path="/editEmployee" element={<EditEmployee />} />
           <Route path="/deparmentform" element={<DeparmentForm />} />

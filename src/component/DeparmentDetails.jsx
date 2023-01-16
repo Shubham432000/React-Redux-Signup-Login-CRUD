@@ -13,30 +13,30 @@ const DeparmentDetails = () => {
 
   const [data, setData] = useState([]);
 
-  const { id } = useParams();
+  const { deparmentId } = useParams();
 
-  const compare = () => {
+  const compareId = () => {
     let compareData = formData.Data.filter((item) => {
-      return item.depa == id;
+      return item.depa == deparmentId;
     });
     setData(compareData);
     
   };
 
   useEffect(() => {
-    compare();
-  }, [id]);
+    compareId();
+  }, [deparmentId]);
 
   const rows = [
     { label: 'First name', value: 'first' },
     { label: 'Last name', value: 'last' },
-    { label: 'Deparment', value: 'depa' },
-    { label: 'Add1', value: 'add1' },
-    { label: 'Add2', value: 'add2' },
-    { label: 'Mobile no', value: 'mob' },
-    { label: 'Pan no', value: 'pan' },
+    { label: 'Deparment', value: 'deparment' },
+    { label: 'Address 1', value: 'address1' },
+    { label: 'Address 2', value: 'address2' },
+    { label: 'Mobile no', value: 'mobile' },
+    { label: 'Pan no', value: 'panno' },
     { label: 'Gender', value: 'gender' },
-    { label: 'Martiual status', value: 'mart' }
+    { label: 'Martiual status', value: 'martiual' }
   ];
 
   Table.propTypes = {

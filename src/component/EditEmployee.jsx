@@ -17,13 +17,13 @@ const EditEmployee = () => {
 
   const [first, setFirst] = useState(employeeData.Data1.first);
   const [last, setLast] = useState(employeeData.Data1.last);
-  const [depa, setDepa] = useState(employeeData.Data1.depa);
-  const [add1, setAdd1] = useState(employeeData.Data1.add1);
-  const [add2, setAdd2] = useState(employeeData.Data1.add2);
-  const [mob, setMob] = useState(employeeData.Data1.mob);
-  const [pan, setPan] = useState(employeeData.Data1.pan);
+  const [deparment, setDeparment] = useState(employeeData.Data1.deparment);
+  const [address1, setAddress1] = useState(employeeData.Data1.address1);
+  const [address2, setAddress2] = useState(employeeData.Data1.address2);
+  const [mobile, setMobile] = useState(employeeData.Data1.mobile);
+  const [panno, setPanno] = useState(employeeData.Data1.panno);
   const [gender, setGender] = useState(employeeData.Data1.gender);
-  const [mart, setMart] = useState(employeeData.Data1.mart);
+  const [martiual, setMartiual] = useState(employeeData.Data1.martiual);
   const id = employeeData.Data1.id;
 
   const onSubmit = () => {
@@ -33,7 +33,7 @@ const EditEmployee = () => {
         title: `${employeeData.Data1.first} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(updateValue({ id, first, last, depa, add1, add2, mob, pan, gender, mart }));
+      dispatch(updateValue({ id, first, last, deparment, address1, address2, mobile, panno, gender, martiual }));
       navigate('/employee');
     }
   };
@@ -77,12 +77,9 @@ const EditEmployee = () => {
                 Last name
               </label>
             </div>
-            {/* <label >
-            Deparment
-          </label> */}
+
             <select
-              onChange={(e) => setDepa(e.target.value)}
-              // id="underline_select"
+              onChange={(e) => setDeparment(e.target.value)}
               className="block py-2.5 px-0 w-full  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
               <option selected>Choose a Deparment</option>
               <option value="HR">HR</option>
@@ -93,8 +90,8 @@ const EditEmployee = () => {
 
           <div className="relative z-0 w-full mb-6 group mt-6">
             <input
-              value={add1}
-              onChange={(e) => setAdd1(e.target.value)}
+              value={address1}
+              onChange={(e) => setAddress1(e.target.value)}
               type="address"
               name="floating_password"
               id="floating_password"
@@ -111,8 +108,8 @@ const EditEmployee = () => {
 
           <div className=" relative z-0 w-full mb-6 group">
             <input
-              value={add2}
-              onChange={(e) => setAdd2(e.target.value)}
+              value={address2}
+              onChange={(e) => setAddress2(e.target.value)}
               type="address"
               name="floating_email"
               id="floating_email"
@@ -130,10 +127,9 @@ const EditEmployee = () => {
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
               <input
-                value={mob}
-                onChange={(e) => setMob(e.target.value)}
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
                 type="tel"
-                // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 name="floating_phone"
                 id="floating_phone"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -148,8 +144,8 @@ const EditEmployee = () => {
             </div>
             <div className="relative z-0 w-full mb-6 group">
               <input
-                value={pan}
-                onChange={(e) => setPan(e.target.value)}
+                value={panno}
+                onChange={(e) => setPanno(e.target.value)}
                 type="text"
                 name="floating_company"
                 id="floating_company"
@@ -180,7 +176,7 @@ const EditEmployee = () => {
               Martiual Status
             </label>
             <select
-              onChange={(e) => setMart(e.target.value)}
+              onChange={(e) => setMartiual(e.target.value)}
               id="underline_select"
               className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
               <option selected>Choose a Martiual Status</option>

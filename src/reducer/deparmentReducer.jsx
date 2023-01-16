@@ -2,14 +2,14 @@ const initialState = {
   Info: []
 };
 
-const depaData = (state, payload) => {
+const deparmentData = (state, payload) => {
   return {
     ...state,
     Info: [...state.Info, payload]
   };
 };
 
-const depaDelet = (state, payload) => {
+const deparmentDelet = (state, payload) => {
   const newList = state.Info.filter((item) => item.id !== payload);
 
   return {
@@ -18,7 +18,7 @@ const depaDelet = (state, payload) => {
   };
 };
 
-const depaEdit = (state, payload) => {
+const deparmentEdit = (state, payload) => {
   const updateList = state.Info.find((item) => item.id == payload);
 
   return {
@@ -27,7 +27,7 @@ const depaEdit = (state, payload) => {
   };
 };
 
-const depaUpdate = (state, payload) => {
+const deparmentUpdate = (state, payload) => {
   const newData = state.Info.map((item) => {
     if (item.id == payload.id) {
       return payload;
@@ -45,15 +45,15 @@ const depaUpdate = (state, payload) => {
 const deparmentReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'DEPDATA':
-      return depaData(state, action.payload);
+      return deparmentData(state, action.payload);
     case 'DEPDELET':
-      return depaDelet(state, action.payload);
+      return deparmentDelet(state, action.payload);
 
     case 'DEPEDIT':
-      return depaEdit(state, action.payload);
+      return deparmentEdit(state, action.payload);
 
     case 'DEPUPDATE':
-      return depaUpdate(state, action.payload);
+      return deparmentUpdate(state, action.payload);
 
     default:
       return state;

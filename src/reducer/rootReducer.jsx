@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 import account from "./AccountReducer";
-import formReducer from "./FormReducer";
+import EmployeeReducer from "./EmployeeReducer";
 import deparmentReducer from "./DeparmentReducer"
 import Account2Reducer from "./Account2Reducer"
 
 
 const rootReducer = combineReducers({ 
     account,
-    formReducer,
+    EmployeeReducer,
     deparmentReducer,
     Account2Reducer
 })

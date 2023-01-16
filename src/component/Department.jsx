@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import Table from './Table';
-import { depaDelet } from '../action/Action';
-import { depaEdit } from '../action/Action';
+import { deparmentDelet } from '../action/Action';
+import { deparmentEdit } from '../action/Action';
 
 import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
@@ -20,16 +20,16 @@ const Department = () => {
     navigate('/deparmentform');
   };
 
-  function removeDepa(Data) {
+  function removeDeparment(Data) {
     swal({
-      title: `${Data.depname} Are you sure?`,
+      title: `${Data.deparmentname} Are you sure?`,
       text: 'Once deleted, you will not be able to recover this information!',
       icon: 'warning',
       buttons: true,
       dangerMode: true
     }).then((willDelete) => {
       if (willDelete) {
-        dispatch(depaDelet(Data.id));
+        dispatch(deparmentDelet(Data.id));
         swal('Poof! Your information  has been deleted!', {
           icon: 'success'
         });
@@ -39,14 +39,14 @@ const Department = () => {
     });
   }
 
-  function editDepa(edit) {
-    dispatch(depaEdit(edit.id));
+  function editDeparment(edit) {
+    dispatch(deparmentEdit(edit.id));
 
     navigate('/editdeparment');
   }
 
   const rows = [
-    { label: 'Deparment name', value: 'depname' },
+    { label: 'Deparment name', value: 'deparmentname' },
     { label: 'Department Id', value: 'identity' },
     { label: 'No Of Employee', value: 'noemployee' },
     { label: 'Head Of Deparment', value: 'hod' }
@@ -71,10 +71,10 @@ const Department = () => {
           coloumns={deparmentValue.Info}
           rows={rows}
           title={'Deparment'}
-          delet={removeDepa}
-          edit={editDepa}
+          delet={removeDeparment}
+          edit={editDeparment}
           onRowClick={(item) => {
-            navigate(`/deparmentdetails/${item.depname}`);
+            navigate(`/deparmentdetails/${item.deparmentname}`);
            
           }}
         />

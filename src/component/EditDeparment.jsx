@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { depaUpdate } from '../action/Action';
+import { deparmentUpdate } from '../action/Action';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
@@ -11,26 +11,26 @@ import swal from 'sweetalert';
 const EditEmployee = () => {
   const depaData = useSelector((state) => state.deparmentReducer);
 
-  console.log(depaData);
+ 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [depname, setdepName] = useState(depaData.Info1.depname);
+  const [deparmentname, setDeparmentName] = useState(depaData.Info1.deparmentname);
   const [identity, setIdentity] = useState(depaData.Info1.identity);
   const [noemployee, setNoemployee] = useState(depaData.Info1.noemployee);
   const [hod, setHod] = useState(depaData.Info1.hod);
 
   const id = depaData.Info1.id;
 
-  console.log('edit depa', depname, hod);
+  
   const onSubmit = () => {
     if (
       swal({
         icon: 'success',
-        title: `${depname} Your Information Edit Succesfully`
+        title: `${deparmentname} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(depaUpdate({ id, depname, identity, noemployee, hod }));
+      dispatch(deparmentUpdate({ id, deparmentname, identity, noemployee, hod }));
       navigate('/deparment');
     }
   };
@@ -42,8 +42,8 @@ const EditEmployee = () => {
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
               <input
-                value={depname}
-                onChange={(e) => setdepName(e.target.value)}
+                value={deparmentname}
+                onChange={(e) => setDeparmentName(e.target.value)}
                 type="text"
                 name="floating_first_name"
                 id="floating_first_name"
