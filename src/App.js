@@ -8,13 +8,13 @@ import PrivateComponent from './component/privateComponent';
 import EmployeeForm from './component/EmployeeForm';
 import Employee from './component/Employee';
 import EditEmployee from './component/EditEmployee';
-import DeparmentForm from './component/DeparmentForm';
-import Deparment from './component/Department';
+import DepartmentForm from './component/DepartmentForm';
+import Department from './component/Department';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import EditDeparment from './component/EditDeparment';
+import EditDepartment from './component/EditDepartment';
 
-import DeparmentDetails from './component/DeparmentDetails';
+import DepartmentDetails from './component/DepartmentDetails';
 
 export const App = () => {
   return (
@@ -26,12 +26,12 @@ export const App = () => {
           <Route path="/form" element={<EmployeeForm />} />
           <Route path="/employee" element={<Employee />} />
           <Route path="/editEmployee" element={<EditEmployee />} />
-          <Route path="/deparmentform" element={<DeparmentForm />} />
-          <Route path="/deparment" element={<Deparment />} />
+          <Route path="/departmentform" element={<DepartmentForm />} />
+          <Route path="/deparment" element={<Department />} />
 
-          <Route path="/deparmentdetails/:id" element={<DeparmentDetails />} />
+          <Route path="/deparmentdetails/:id" element={<DepartmentDetails />} />
 
-          <Route path="/editdeparment" element={<EditDeparment />} />
+          <Route path="/editdeparment" element={<EditDepartment />} />
         </Route>
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />

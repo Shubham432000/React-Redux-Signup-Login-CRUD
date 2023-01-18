@@ -24,10 +24,10 @@ const Table = (props) => {
             {coloumns.map((item) => {
               return (
                 <tr key={item.id} onClick={() => onRowClick(item)}>
-                  {rows.map((val) => {
+                  {rows.map((data) => {
                     return (
                       <td key={item.id} className="border border-slate-300 p-4">
-                        {item[val.value]}
+                        {item[data.value]}
                       </td>
                     );
                   })}
