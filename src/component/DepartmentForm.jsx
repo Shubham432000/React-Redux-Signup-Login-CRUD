@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deparmentValue } from '../action/Action';
+import { departmentValue } from '../action/Action';
 import { useNavigate } from 'react-router-dom';
 
 const DeparmentForm = () => {
@@ -11,16 +11,16 @@ const DeparmentForm = () => {
   const time = new Date();
   const id = time.getTime();
 
-  const [deparmentname, setDeparmentName] = useState('');
+  const [departmentname, setDepartmentName] = useState('');
   const [identity, setIdentity] = useState('');
   const [noemployee, setNoemployee] = useState('');
   const [hod, setHod] = useState('');
 
   const depaForm = (e) => {
     e.preventDefault();
-    dispatch(deparmentValue({ id, deparmentname, identity, noemployee, hod }));
+    dispatch(departmentValue({ id, departmentname, identity, noemployee, hod }));
 
-    navigate('/deparment');
+    navigate('/department');
   };
   return (
     <>
@@ -29,8 +29,8 @@ const DeparmentForm = () => {
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
               <input
-                value={deparmentname}
-                onChange={(e) => setDeparmentName(e.target.value)}
+                value={departmentname}
+                onChange={(e) => setDepartmentName(e.target.value)}
                 type="text"
                 name="floating_first_name"
                 id="floating_first_name"

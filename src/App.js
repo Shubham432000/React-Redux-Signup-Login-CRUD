@@ -27,11 +27,11 @@ export const App = () => {
           <Route path="/employee" element={<Employee />} />
           <Route path="/editEmployee" element={<EditEmployee />} />
           <Route path="/departmentform" element={<DepartmentForm />} />
-          <Route path="/deparment" element={<Department />} />
+          <Route path="/department" element={<Department />} />
 
-          <Route path="/deparmentdetails/:id" element={<DepartmentDetails />} />
+          <Route path="/departmentdetails/:id" element={<DepartmentDetails />} />
 
-          <Route path="/editdeparment" element={<EditDepartment />} />
+          <Route path="/editdepartment" element={<EditDepartment />} />
         </Route>
         <Route path="/" element={<Signup />} />
         <Route path="/login" element={<Login />} />

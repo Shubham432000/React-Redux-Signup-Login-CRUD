@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deparmentUpdate } from '../action/Action';
+import { departmentUpdate } from '../action/Action';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
@@ -30,8 +30,8 @@ const EditEmployee = () => {
         title: `${deparmentname} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(deparmentUpdate({ id, deparmentname, identity, noemployee, hod }));
-      navigate('/deparment');
+      dispatch(departmentUpdate({ id, deparmentname, identity, noemployee, hod }));
+      navigate('/department');
     }
   };
 

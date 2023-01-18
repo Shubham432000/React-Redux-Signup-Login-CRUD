@@ -44,7 +44,7 @@ const Navbar = () => {
 
             <Link
               className="mr-5  cursor-pointer text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
-              to="/deparment">
+              to="/department">
               Deparment
             </Link>
 

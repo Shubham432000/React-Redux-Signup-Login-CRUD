@@ -63,28 +63,28 @@ export const accountUpdate =(data)=>{
 
 // deparment action
 
-export const deparmentValue =(data)=>{
+export const departmentValue =(data)=>{
     return{
         type:"DEPDATA",
         payload:data
     }
 }
 
-export const deparmentDelet =(data)=>{
+export const departmentDelet =(data)=>{
     return{
         type:"DEPDELET",
         payload:data
     }
 }
 
-export const deparmentEdit =(data)=>{
+export const departmentEdit =(data)=>{
     return{
         type:"DEPEDIT",
         payload:data
     }
 }
 
-export const deparmentUpdate =(data)=>{
+export const departmentUpdate =(data)=>{
     return{
         type:"DEPUPDATE",
         payload:data

@@ -10,7 +10,7 @@ import Table from './Table';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const Employee = () => {
-  const formInformation = useSelector((state) => state.formReducer);
+  const formInformation = useSelector((state) => state.EmployeeReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   

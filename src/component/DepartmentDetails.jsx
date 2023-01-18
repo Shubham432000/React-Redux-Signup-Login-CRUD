@@ -8,8 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const DeparmentDetails = () => {
-  const formData = useSelector((state) => state.formReducer);
+const DepartmentDetails = () => {
+  const formData = useSelector((state) => state.EmployeeReducer);
 
   const [data, setData] = useState([]);
 
@@ -36,7 +36,7 @@ const DeparmentDetails = () => {
     { label: 'Mobile no', value: 'mobile' },
     { label: 'Pan no', value: 'panno' },
     { label: 'Gender', value: 'gender' },
-    { label: 'Martiual status', value: 'martiual' }
+    { label: 'Marital status', value: 'marital' }
   ];
 
   Table.propTypes = {
@@ -49,10 +49,10 @@ const DeparmentDetails = () => {
   return (
     <>
       <div>
-        <Table coloumns={data} rows={rows} title={'deparment details'} />
+        <Table coloumns={data} rows={rows} title={'department details'} />
       </div>
     </>
   );
 };
 
-export default DeparmentDetails;
+export default DepartmentDetails;

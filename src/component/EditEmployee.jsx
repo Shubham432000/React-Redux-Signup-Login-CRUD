@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 
 const EditEmployee = () => {
-  const employeeData = useSelector((state) => state.formReducer);
+  const employeeData = useSelector((state) => state.EmployeeReducer);
 
   console.log(employeeData);
   const dispatch = useDispatch();
