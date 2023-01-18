@@ -17,7 +17,7 @@ const EmployeeForm = () => {
   const [mobile, setMobile] = useState('');
   const [panno, setPanno] = useState('');
   const [gender, setGender] = useState('');
-  const [martiual, setMartiual] = useState('');
+  const [marital, setMarital] = useState('');
 
   let date = new Date();
   let id = date.getTime();
@@ -66,7 +66,7 @@ const EmployeeForm = () => {
       });
       return false;
     }
-    if (!martiual) {
+    if (!marital) {
       toast.warn('Please Enter martiual status !', {
         position: toast.POSITION.TOP_CENTER
       });
@@ -92,7 +92,7 @@ const EmployeeForm = () => {
           mobile,
           panno,
           gender,
-          martiual
+          marital
         })
       );
       navigate('/employee');
@@ -237,10 +237,10 @@ const EmployeeForm = () => {
             Martiual Status
           </label>
           <select
-            onChange={(e) => setMartiual(e.target.value)}
+            onChange={(e) => setMarital(e.target.value)}
             id="underline_select"
             className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Choose a Martiual Status</option>
+            <option selected>Choose a Marital Status</option>
             <option value="Married">Married</option>
             <option value="Unmarried">Unmarried</option>
           </select>

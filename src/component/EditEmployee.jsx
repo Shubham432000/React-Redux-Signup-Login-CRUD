@@ -23,7 +23,7 @@ const EditEmployee = () => {
   const [mobile, setMobile] = useState(employeeData.Data1.mobile);
   const [panno, setPanno] = useState(employeeData.Data1.panno);
   const [gender, setGender] = useState(employeeData.Data1.gender);
-  const [martiual, setMartiual] = useState(employeeData.Data1.martiual);
+  const [marital, setMarital] = useState(employeeData.Data1.martiual);
   const id = employeeData.Data1.id;
 
   const onSubmit = () => {
@@ -33,7 +33,7 @@ const EditEmployee = () => {
         title: `${employeeData.Data1.first} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(updateValue({ id, first, last, deparment, address1, address2, mobile, panno, gender, martiual }));
+      dispatch(updateValue({ id, first, last, deparment, address1, address2, mobile, panno, gender, marital }));
       navigate('/employee');
     }
   };
@@ -176,10 +176,10 @@ const EditEmployee = () => {
               Martiual Status
             </label>
             <select
-              onChange={(e) => setMartiual(e.target.value)}
+              onChange={(e) => setMarital(e.target.value)}
               id="underline_select"
               className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-              <option selected>Choose a Martiual Status</option>
+              <option selected>Choose a Marital Status</option>
               <option value="Married">Married</option>
               <option value="Unmarried">Unmarried</option>
             </select>
