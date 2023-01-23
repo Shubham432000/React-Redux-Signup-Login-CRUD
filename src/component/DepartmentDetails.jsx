@@ -13,24 +13,25 @@ const DepartmentDetails = () => {
 
   const [data, setData] = useState([]);
 
-  const { deparmentId } = useParams();
+  const { id } = useParams();
 
   const compareId = () => {
     let compareData = formData.Data.filter((item) => {
-      return item.depa == deparmentId;
+      return item.department == id;
     });
     setData(compareData);
     
   };
+  
 
   useEffect(() => {
     compareId();
-  }, [deparmentId]);
+  }, [id]);
 
   const rows = [
     { label: 'First name', value: 'first' },
     { label: 'Last name', value: 'last' },
-    { label: 'Deparment', value: 'deparment' },
+    { label: 'Department', value: 'department' },
     { label: 'Address 1', value: 'address1' },
     { label: 'Address 2', value: 'address2' },
     { label: 'Mobile no', value: 'mobile' },

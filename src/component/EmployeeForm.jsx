@@ -11,7 +11,7 @@ const EmployeeForm = () => {
 
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
-  const [deparment, setDeparment] = useState('');
+  const [department, setDepartment] = useState('');
   const [address1, setAddress1] = useState('');
   const [address2, setAddress2] = useState('');
   const [mobile, setMobile] = useState('');
@@ -34,7 +34,7 @@ const EmployeeForm = () => {
       });
       return false;
     }
-    if (!deparment) {
+    if (!department) {
       toast.warn('Please Enter  deparment !', {
         position: toast.POSITION.TOP_CENTER
       });
@@ -86,7 +86,7 @@ const EmployeeForm = () => {
           id,
           first,
           last,
-          deparment,
+          department,
           address1,
           address2,
           mobile,
@@ -138,7 +138,7 @@ const EmployeeForm = () => {
           </div>
 
           <select
-            onChange={(e) => setDeparment(e.target.value)}
+            onChange={(e) => setDepartment(e.target.value)}
             id="underline_select"
             className="block py-2.5 px-0 w-full  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
             <option selected>Choose a Deparment</option>

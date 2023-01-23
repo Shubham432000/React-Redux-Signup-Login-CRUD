@@ -17,7 +17,7 @@ const EditEmployee = () => {
 
   const [first, setFirst] = useState(employeeData.Data1.first);
   const [last, setLast] = useState(employeeData.Data1.last);
-  const [deparment, setDeparment] = useState(employeeData.Data1.deparment);
+  const [department, setDepartment] = useState(employeeData.Data1.deparment);
   const [address1, setAddress1] = useState(employeeData.Data1.address1);
   const [address2, setAddress2] = useState(employeeData.Data1.address2);
   const [mobile, setMobile] = useState(employeeData.Data1.mobile);
@@ -33,7 +33,7 @@ const EditEmployee = () => {
         title: `${employeeData.Data1.first} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(updateValue({ id, first, last, deparment, address1, address2, mobile, panno, gender, marital }));
+      dispatch(updateValue({ id, first, last, department, address1, address2, mobile, panno, gender, marital }));
       navigate('/employee');
     }
   };
@@ -79,7 +79,7 @@ const EditEmployee = () => {
             </div>
 
             <select
-              onChange={(e) => setDeparment(e.target.value)}
+              onChange={(e) => setDepartment(e.target.value)}
               className="block py-2.5 px-0 w-full  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
               <option selected>Choose a Deparment</option>
               <option value="HR">HR</option>

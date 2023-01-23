@@ -29,7 +29,7 @@ export const App = () => {
           <Route path="/departmentform" element={<DepartmentForm />} />
           <Route path="/department" element={<Department />} />
 
-          <Route path="/departmentdetails/:id" element={<DepartmentDetails />} />
+          <Route path="/departmentdetails/:id"  element={<DepartmentDetails />} />
 
           <Route path="/editdepartment" element={<EditDepartment />} />
         </Route>
@@ -37,6 +37,7 @@ export const App = () => {
         <Route path="/login" element={<Login />} />
       </Routes>
       <ToastContainer />
+     
     </>
   );
 };

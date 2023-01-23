@@ -47,7 +47,7 @@ const Employee = () => {
   const rows = [
     { label: 'First name', value: 'first' },
     { label: 'Last name', value: 'last' },
-    { label: 'Deparment', value: 'deparment' },
+    { label: 'Department', value: 'department' },
     { label: 'Address 1', value: 'address1' },
     { label: 'Address 2', value: 'address2' },
     { label: 'Mobile no', value: 'mobile' },

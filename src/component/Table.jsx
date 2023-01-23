@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { HiPencilAlt } from 'react-icons/hi';
+import { AiFillEye } from 'react-icons/ai';
 
 const Table = (props) => {
-  let { coloumns = [], rows, title, delet, edit, onRowClick } = props;
+  let { coloumns = [], rows, title, delet, edit, details } = props;
 
   return (
     <>
@@ -23,7 +24,7 @@ const Table = (props) => {
           <tbody>
             {coloumns.map((item) => {
               return (
-                <tr key={item.id} onClick={() => onRowClick(item)}>
+                <tr key={item.id} >
                   {rows.map((data) => {
                     return (
                       <td key={item.id} className="border border-slate-300 p-4">
@@ -31,7 +32,9 @@ const Table = (props) => {
                       </td>
                     );
                   })}
-
+                  <td className="border border-slate-300 p-4">
+                    <AiFillEye onClick={() => details(item)} />
+                  </td>
                   <td className="border border-slate-300 p-4">
                     <HiPencilAlt onClick={() => edit(item)} />
                   </td>

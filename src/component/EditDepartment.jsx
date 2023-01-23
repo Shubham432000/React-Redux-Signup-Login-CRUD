@@ -9,13 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 
 const EditEmployee = () => {
-  const depaData = useSelector((state) => state.deparmentReducer);
+  const depaData = useSelector((state) => state.departmentReducer);
 
  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [deparmentname, setDeparmentName] = useState(depaData.Info1.deparmentname);
+  const [departmentname, setDepartmentName] = useState(depaData.Info1.departmentname);
   const [identity, setIdentity] = useState(depaData.Info1.identity);
   const [noemployee, setNoemployee] = useState(depaData.Info1.noemployee);
   const [hod, setHod] = useState(depaData.Info1.hod);
@@ -27,10 +27,10 @@ const EditEmployee = () => {
     if (
       swal({
         icon: 'success',
-        title: `${deparmentname} Your Information Edit Succesfully`
+        title: `${departmentname} Your Information Edit Succesfully`
       })
     ) {
-      dispatch(departmentUpdate({ id, deparmentname, identity, noemployee, hod }));
+      dispatch(departmentUpdate({ id, departmentname, identity, noemployee, hod }));
       navigate('/department');
     }
   };
@@ -42,8 +42,8 @@ const EditEmployee = () => {
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
               <input
-                value={deparmentname}
-                onChange={(e) => setDeparmentName(e.target.value)}
+                value={departmentname}
+                onChange={(e) => setDepartmentName(e.target.value)}
                 type="text"
                 name="floating_first_name"
                 id="floating_first_name"

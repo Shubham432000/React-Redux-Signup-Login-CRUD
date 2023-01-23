@@ -11,7 +11,7 @@ import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 
 const Department = () => {
-  const departmentValue = useSelector((state) => state.deparmentReducer);
+  const departmentValue = useSelector((state) => state.departmentReducer);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -46,10 +46,10 @@ const Department = () => {
   }
 
   const rows = [
-    { label: 'Deparment name', value: 'departmentname' },
+    { label: 'Department name', value: 'departmentname' },
     { label: 'Department Id', value: 'identity' },
     { label: 'No Of Employee', value: 'noemployee' },
-    { label: 'Head Of Deparment', value: 'hod' }
+    { label: 'Head Of Department', value: 'hod' }
   ];
 
   Table.propTypes = {
@@ -73,7 +73,7 @@ const Department = () => {
           title={'Department'}
           delet={removeDepartment}
           edit={editDepartment}
-          onRowClick={(item) => {
+          details={(item) => {
             navigate(`/departmentdetails/${item.departmentname}`);
           }}
         />
