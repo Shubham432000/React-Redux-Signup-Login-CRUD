@@ -2,14 +2,14 @@ const initialState = {
   Info: []
 };
 
-const deparmentData = (state, payload) => {
+const departmentData = (state, payload) => {
   return {
     ...state,
     Info: [...state.Info, payload]
   };
 };
 
-const deparmentDelete = (state, payload) => {
+const departmentDelete = (state, payload) => {
   const newList = state.Info.filter((item) => item.id !== payload);
 
   return {
@@ -18,7 +18,7 @@ const deparmentDelete = (state, payload) => {
   };
 };
 
-const deparmentEdit = (state, payload) => {
+const departmentEdit = (state, payload) => {
   const updateList = state.Info.find((item) => item.id == payload);
 
   return {
@@ -27,7 +27,7 @@ const deparmentEdit = (state, payload) => {
   };
 };
 
-const deparmentUpdate = (state, payload) => {
+const departmentUpdate = (state, payload) => {
   const newData = state.Info.map((item) => {
     if (item.id == payload.id) {
       return payload;
@@ -42,22 +42,22 @@ const deparmentUpdate = (state, payload) => {
   };
 };
 
-const deparmentReducer = (state = initialState, action) => {
+const departmentReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'DEPDATA':
-      return deparmentData(state, action.payload);
+      return departmentData(state, action.payload);
     case 'DEPDELET':
-      return deparmentDelete(state, action.payload);
+      return departmentDelete(state, action.payload);
 
     case 'DEPEDIT':
-      return deparmentEdit(state, action.payload);
+      return departmentEdit(state, action.payload);
 
     case 'DEPUPDATE':
-      return deparmentUpdate(state, action.payload);
+      return departmentUpdate(state, action.payload);
 
     default:
       return state;
   }
 };
 
-export default deparmentReducer;
+export default departmentReducer;
