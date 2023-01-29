@@ -4,7 +4,7 @@ import { HiPencilAlt } from 'react-icons/hi';
 import { AiFillEye } from 'react-icons/ai';
 
 const Table = (props) => {
-  let { coloumns = [], rows, title, delet, edit, details } = props;
+  let { coloumns = [], rows, title, delete1, edit, details } = props;
 
   return (
     <>
@@ -39,7 +39,7 @@ const Table = (props) => {
                     <HiPencilAlt onClick={() => edit(item)} />
                   </td>
                   <td className="border border-slate-300 p-4">
-                    <FaTrashAlt onClick={() => delet(item)} />
+                    <FaTrashAlt onClick={() => delete1(item)} />
                   </td>
                 </tr>
               );

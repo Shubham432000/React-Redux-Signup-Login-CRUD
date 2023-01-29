@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deletEmployee } from '../action/Action';
+import { deleteEmployee } from '../action/Action';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { editData } from '../action/Action';
@@ -24,7 +24,7 @@ const Employee = () => {
       dangerMode: true
     }).then((willDelete) => {
       if (willDelete) {
-        dispatch(deletEmployee(employeeData.id));
+        dispatch(deleteEmployee(employeeData.id));
         swal('Poof! Your information  has been deleted!', {
           icon: 'success'
         });
@@ -75,7 +75,7 @@ const Employee = () => {
         coloumns={formInformation.Data}
         rows={rows}
         title={'Employees'}
-        delet={removeEmployee}
+        delete1={removeEmployee}
         edit={editEmployee}
       />
     </>

@@ -11,7 +11,7 @@ const employeeValue = (state, payload) => {
   };
 };
 
-const deletEmployee = (state, payload) => {
+const deleteEmployee = (state, payload) => {
   const newList = state.Data.filter((item) => item.id !== payload);
   
 
@@ -55,7 +55,7 @@ const EmployeeReducer = (state = initialState, action) => {
       return employeeValue(state, action.payload);
 
     case "DELETDATA":
-      return deletEmployee(state, action.payload);
+      return deleteEmployee(state, action.payload);
 
     case "EDITDATA":
       return editEmployee(state, action.payload);

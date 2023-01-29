@@ -9,7 +9,7 @@ const deparmentData = (state, payload) => {
   };
 };
 
-const deparmentDelet = (state, payload) => {
+const deparmentDelete = (state, payload) => {
   const newList = state.Info.filter((item) => item.id !== payload);
 
   return {
@@ -47,7 +47,7 @@ const deparmentReducer = (state = initialState, action) => {
     case 'DEPDATA':
       return deparmentData(state, action.payload);
     case 'DEPDELET':
-      return deparmentDelet(state, action.payload);
+      return deparmentDelete(state, action.payload);
 
     case 'DEPEDIT':
       return deparmentEdit(state, action.payload);

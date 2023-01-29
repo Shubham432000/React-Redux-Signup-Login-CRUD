@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import Table from './Table';
-import { departmentDelet } from '../action/Action';
+import { departmentDelete } from '../action/Action';
 import { departmentEdit } from '../action/Action';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,7 +29,7 @@ const Department = () => {
       dangerMode: true
     }).then((willDelete) => {
       if (willDelete) {
-        dispatch(departmentDelet(Data.id));
+        dispatch(departmentDelete(Data.id));
         swal('Poof! Your information  has been deleted!', {
           icon: 'success'
         });
@@ -71,7 +71,7 @@ const Department = () => {
           coloumns={departmentValue.Info}
           rows={rows}
           title={'Department'}
-          delet={removeDepartment}
+          delete1={removeDepartment}
           edit={editDepartment}
           details={(item) => {
             navigate(`/departmentdetails/${item.departmentname}`);

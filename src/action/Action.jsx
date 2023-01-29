@@ -7,7 +7,7 @@ export const employeeInformation =(data)=>{
     }
 }
 
-export const deletEmployee =(data)=>{
+export const deleteEmployee =(data)=>{
     return{
         type:"DELETDATA",
          payload:data
@@ -70,7 +70,7 @@ export const departmentValue =(data)=>{
     }
 }
 
-export const departmentDelet =(data)=>{
+export const departmentDelete =(data)=>{
     return{
         type:"DEPDELET",
         payload:data
