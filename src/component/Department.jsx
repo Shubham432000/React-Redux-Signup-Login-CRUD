@@ -49,7 +49,8 @@ const Department = () => {
     { label: 'Department name', value: 'departmentname' },
     { label: 'Department Id', value: 'identity' },
     { label: 'No Of Employee', value: 'noemployee' },
-    { label: 'Head Of Department', value: 'hod' }
+    { label: 'Head Of Department', value: 'hod' },
+    
   ];
 
   Table.propTypes = {

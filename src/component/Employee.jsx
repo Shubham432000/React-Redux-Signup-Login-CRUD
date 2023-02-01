@@ -53,7 +53,9 @@ const Employee = () => {
     { label: 'Mobile no', value: 'mobile' },
     { label: 'Pan no', value: 'panno' },
     { label: 'Gender', value: 'gender' },
-    { label: 'Marital status', value: 'marital' }
+    { label: 'Marital status', value: 'marital' },
+      
+   
   ];
 
   Table.propTypes = {
