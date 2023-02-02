@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const userInfo = useSelector((state) => state.account);
 
-  const logout1 = () => {
+  const accountLogout = () => {
     if (
       toast.success(` ${userInfo.name} your Logout succesfully`, {
         position: toast.POSITION.TOP_CENTER
@@ -44,13 +44,13 @@ const Navbar = () => {
 
             <Link
               className="mr-5  cursor-pointer text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
-              to="/deparment">
+              to="/department">
               Deparment
             </Link>
 
             <Link
               className="mr-5 text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2"
-              onClick={logout1}
+              onClick={accountLogout}
               to="/">
               Logout
             </Link>

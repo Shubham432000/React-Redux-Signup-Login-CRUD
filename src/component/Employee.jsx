@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deletData } from '../action/Action';
+import { deleteEmployee } from '../action/Action';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { editData } from '../action/Action';
@@ -10,12 +10,12 @@ import Table from './Table';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
 const Employee = () => {
-  const formInformation = useSelector((state) => state.formReducer);
+  const formInformation = useSelector((state) => state.EmployeeReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
 
-  function removeData(employeeData) {
+  function removeEmployee(employeeData) {
     swal({
       title: `${employeeData.first} Are you sure?`,
       text: 'Once deleted, you will not be able to recover this information!',
@@ -24,7 +24,7 @@ const Employee = () => {
       dangerMode: true
     }).then((willDelete) => {
       if (willDelete) {
-        dispatch(deletData(employeeData.id));
+        dispatch(deleteEmployee(employeeData.id));
         swal('Poof! Your information  has been deleted!', {
           icon: 'success'
         });
@@ -34,26 +34,28 @@ const Employee = () => {
     });
   }
 
-  function editValue(edit) {
+  function editEmployee(edit) {
     dispatch(editData(edit.id));
 
     navigate('/editEmployee');
   }
 
-  const addPage = () => {
+  const employeeForm = () => {
     navigate('/form');
   };
 
   const rows = [
     { label: 'First name', value: 'first' },
     { label: 'Last name', value: 'last' },
-    { label: 'Deparment', value: 'depa' },
-    { label: 'Add1', value: 'add1' },
-    { label: 'Add2', value: 'add2' },
-    { label: 'Mobile no', value: 'mob' },
-    { label: 'Pan no', value: 'pan' },
+    { label: 'Department', value: 'department' },
+    { label: 'Address 1', value: 'address1' },
+    { label: 'Address 2', value: 'address2' },
+    { label: 'Mobile no', value: 'mobile' },
+    { label: 'Pan no', value: 'panno' },
     { label: 'Gender', value: 'gender' },
-    { label: 'Martiual status', value: 'mart' }
+    { label: 'Marital status', value: 'marital' },
+      
+   
   ];
 
   Table.propTypes = {
@@ -68,15 +70,15 @@ const Employee = () => {
     <>
       <div className="flex flex-row justify-end mt-[40px] mr-[100px]">
         <div>
-          <AiOutlinePlusCircle onClick={() => addPage()} size="35px" />
+          <AiOutlinePlusCircle onClick={() => employeeForm()} size="35px" />
         </div>
       </div>
       <Table
         coloumns={formInformation.Data}
         rows={rows}
         title={'Employees'}
-        delet={removeData}
-        edit={editValue}
+        delete1={removeEmployee}
+        edit={editEmployee}
       />
     </>
   );

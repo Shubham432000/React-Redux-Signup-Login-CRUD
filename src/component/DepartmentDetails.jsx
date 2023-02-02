@@ -8,35 +8,36 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const DeparmentDetails = () => {
-  const formData = useSelector((state) => state.formReducer);
+const DepartmentDetails = () => {
+  const formData = useSelector((state) => state.EmployeeReducer);
 
   const [data, setData] = useState([]);
 
   const { id } = useParams();
 
-  const compare = () => {
+  const compareId = () => {
     let compareData = formData.Data.filter((item) => {
-      return item.depa == id;
+      return item.department == id;
     });
     setData(compareData);
-    console.log('compare', compareData);
+    
   };
+  
 
   useEffect(() => {
-    compare();
+    compareId();
   }, [id]);
 
   const rows = [
     { label: 'First name', value: 'first' },
     { label: 'Last name', value: 'last' },
-    { label: 'Deparment', value: 'depa' },
-    { label: 'Add1', value: 'add1' },
-    { label: 'Add2', value: 'add2' },
-    { label: 'Mobile no', value: 'mob' },
-    { label: 'Pan no', value: 'pan' },
+    { label: 'Department', value: 'department' },
+    { label: 'Address 1', value: 'address1' },
+    { label: 'Address 2', value: 'address2' },
+    { label: 'Mobile no', value: 'mobile' },
+    { label: 'Pan no', value: 'panno' },
     { label: 'Gender', value: 'gender' },
-    { label: 'Martiual status', value: 'mart' }
+    { label: 'Marital status', value: 'marital' }
   ];
 
   Table.propTypes = {
@@ -49,10 +50,10 @@ const DeparmentDetails = () => {
   return (
     <>
       <div>
-        <Table coloumns={data} rows={rows} title={'deparment details'} />
+        <Table coloumns={data} rows={rows} title={'department details'} />
       </div>
     </>
   );
 };
 
-export default DeparmentDetails;
+export default DepartmentDetails;

@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { formData } from '../action/Action';
+import { employeeInformation } from '../action/Action';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Form = () => {
+const EmployeeForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
-  const [depa, setDepa] = useState('');
-  const [add1, setAdd1] = useState('');
-  const [add2, setAdd2] = useState('');
-  const [mob, setMob] = useState('');
-  const [pan, setPan] = useState('');
+  const [department, setDepartment] = useState('');
+  const [address1, setAddress1] = useState('');
+  const [address2, setAddress2] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [panno, setPanno] = useState('');
   const [gender, setGender] = useState('');
-  const [mart, setMart] = useState('');
+  const [marital, setMarital] = useState('');
 
   let date = new Date();
   let id = date.getTime();
@@ -34,26 +34,26 @@ const Form = () => {
       });
       return false;
     }
-    if (!depa) {
+    if (!department) {
       toast.warn('Please Enter  deparment !', {
         position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
-    if (!add1) {
+    if (!address1) {
       toast.warn('Please Enter  Address1 !', {
         position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
-    if (!mob) {
+    if (!mobile) {
       toast.warn('Please Enter Address2 !', {
         position: toast.POSITION.TOP_CENTER
       });
       return false;
     }
 
-    if (!pan) {
+    if (!panno) {
       toast.warn('Please Enter Pan No !', {
         position: toast.POSITION.TOP_CENTER
       });
@@ -66,7 +66,7 @@ const Form = () => {
       });
       return false;
     }
-    if (!mart) {
+    if (!marital) {
       toast.warn('Please Enter martiual status !', {
         position: toast.POSITION.TOP_CENTER
       });
@@ -76,23 +76,23 @@ const Form = () => {
     return true;
   };
 
-  const Data = (e) => {
+  const employeeData = (e) => {
     e.preventDefault();
-    console.log(first, last, depa, add1, add2, pan, gender, mart);
+  
 
     if (validatedata()) {
       dispatch(
-        formData({
+        employeeInformation({
           id,
           first,
           last,
-          depa,
-          add1,
-          add2,
-          mob,
-          pan,
+          department,
+          address1,
+          address2,
+          mobile,
+          panno,
           gender,
-          mart
+          marital
         })
       );
       navigate('/employee');
@@ -100,7 +100,7 @@ const Form = () => {
   };
   return (
     <section className="container mx-auto mt-10">
-      <form onSubmit={Data}>
+      <form onSubmit={employeeData}>
         <div className="grid md:grid-cols-2 md:gap-6">
           <div className="relative z-0 w-full mb-6 group">
             <input
@@ -138,7 +138,7 @@ const Form = () => {
           </div>
 
           <select
-            onChange={(e) => setDepa(e.target.value)}
+            onChange={(e) => setDepartment(e.target.value)}
             id="underline_select"
             className="block py-2.5 px-0 w-full  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
             <option selected>Choose a Deparment</option>
@@ -150,8 +150,8 @@ const Form = () => {
 
         <div className="relative z-0 w-full mb-6 group mt-6">
           <input
-            value={add1}
-            onChange={(e) => setAdd1(e.target.value)}
+            value={address1}
+            onChange={(e) => setAddress1(e.target.value)}
             type="address"
             name="floating_password"
             id="floating_password"
@@ -168,8 +168,8 @@ const Form = () => {
 
         <div className=" relative z-0 w-full mb-6 group">
           <input
-            value={add2}
-            onChange={(e) => setAdd2(e.target.value)}
+            value={address2}
+            onChange={(e) => setAddress2(e.target.value)}
             type="address"
             name="floating_email"
             id="floating_email"
@@ -187,10 +187,10 @@ const Form = () => {
         <div className="grid md:grid-cols-2 md:gap-6">
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={mob}
-              onChange={(e) => setMob(e.target.value)}
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
               type="tel"
-              // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+             
               name="floating_phone"
               id="floating_phone"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -205,8 +205,8 @@ const Form = () => {
           </div>
           <div className="relative z-0 w-full mb-6 group">
             <input
-              value={pan}
-              onChange={(e) => setPan(e.target.value)}
+              value={panno}
+              onChange={(e) => setPanno(e.target.value)}
               type="text"
               name="floating_company"
               id="floating_company"
@@ -237,10 +237,10 @@ const Form = () => {
             Martiual Status
           </label>
           <select
-            onChange={(e) => setMart(e.target.value)}
+            onChange={(e) => setMarital(e.target.value)}
             id="underline_select"
             className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Choose a Martiual Status</option>
+            <option selected>Choose a Marital Status</option>
             <option value="Married">Married</option>
             <option value="Unmarried">Unmarried</option>
           </select>
@@ -255,4 +255,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default EmployeeForm;

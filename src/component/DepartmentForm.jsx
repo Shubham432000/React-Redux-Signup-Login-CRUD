@@ -1,49 +1,36 @@
 import React from 'react';
 import { useState } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { departmentValue } from '../action/Action';
 import { useNavigate } from 'react-router-dom';
-import { depaUpdate } from '../action/Action';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import swal from 'sweetalert';
 
-const EditEmployee = () => {
-  const depaData = useSelector((state) => state.deparmentReducer);
-
-  console.log(depaData);
+const DeparmentForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [depname, setdepName] = useState(depaData.Info1.depname);
-  const [identity, setIdentity] = useState(depaData.Info1.identity);
-  const [noemployee, setNoemployee] = useState(depaData.Info1.noemployee);
-  const [hod, setHod] = useState(depaData.Info1.hod);
+  const time = new Date();
+  const id = time.getTime();
 
-  const id = depaData.Info1.id;
+  const [departmentname, setDepartmentName] = useState('');
+  const [identity, setIdentity] = useState('');
+  const [noemployee, setNoemployee] = useState('');
+  const [hod, setHod] = useState('');
 
-  console.log('edit depa', depname, hod);
-  const onSubmit = () => {
-    if (
-      swal({
-        icon: 'success',
-        title: `${depname} Your Information Edit Succesfully`
-      })
-    ) {
-      dispatch(depaUpdate({ id, depname, identity, noemployee, hod }));
-      navigate('/deparment');
-    }
+  const depaForm = (e) => {
+    e.preventDefault();
+    dispatch(departmentValue({ id, departmentname, identity, noemployee, hod }));
+
+    navigate('/department');
   };
-
   return (
     <>
       <section className="container mx-auto mt-10">
-        <form onSubmit={onSubmit}>
+        <form onSubmit={depaForm}>
           <div className="grid md:grid-cols-2 md:gap-6">
             <div className="relative z-0 w-full mb-6 group">
               <input
-                value={depname}
-                onChange={(e) => setdepName(e.target.value)}
+                value={departmentname}
+                onChange={(e) => setDepartmentName(e.target.value)}
                 type="text"
                 name="floating_first_name"
                 id="floating_first_name"
@@ -119,9 +106,8 @@ const EditEmployee = () => {
           </button>
         </form>
       </section>
-
-      <ToastContainer />
     </>
   );
 };
-export default EditEmployee;
+
+export default DeparmentForm;
