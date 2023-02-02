@@ -50,10 +50,10 @@ const Employee = () => {
     { label: 'Department', value: 'department' },
     { label: 'Address 1', value: 'address1' },
     { label: 'Address 2', value: 'address2' },
-    { label: 'Mobile no', value: 'mobile' },
-    { label: 'Pan no', value: 'panno' },
+    { label: 'Mobile nNo', value: 'mobile' },
+    { label: 'Pan No', value: 'panno' },
     { label: 'Gender', value: 'gender' },
-    { label: 'Marital status', value: 'marital' },
+    { label: 'Marital Status', value: 'marital' },
       
    
   ];
