@@ -27,7 +27,7 @@ const Navbar = () => {
       {userInfo.isLoggedIn ? (
         <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-blue-500 shadow-md  border-b ">
           <a className="flex title-font font-medium items-center text-lg text-white hover:text-white hover:bg-indigo-600 rounded-md p-2 mb-4 md:mb-0">
-            <span className="px-3 py-1 text-xl">TODO</span>
+            <span className="px-4 py-1 text-xl">TODO</span>
           </a>
 
           <nav className="md:ml-auto flex flex-wrap items-center text-lg justify-center font-semibold">
@@ -59,7 +59,7 @@ const Navbar = () => {
       ) : (
         <div className=" mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-blue-500  border-b  ">
           <a className="flex title-font font-medium items-center text-lg text-white hover:text-white hover:bg-indigo-700 rounded-md p-2 mb-4 md:mb-0">
-            <span className=" px-3 py-1 text-xl">TODO</span>
+            <span className=" px-4 py-1 text-xl">TODO</span>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center  text-lg font-semibold">
             <Link
